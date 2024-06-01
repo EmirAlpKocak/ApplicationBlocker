@@ -15,8 +15,8 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image F
 
 Which Programming Language Is Used?
 
--I used Microsoft Visual Studio 2019 C# to make this application. You can download the source code.
+-Version 1.0 and 1.1 is coded using C#. Version 1.2 and newer versions are coded using VB.NET
 
 Which Software Did You Used To Create The Setup File?
 
--I used "InstallSimple 3.5" to generate the setup file. I have just wanted to use the Publish feature of Visual Studio, but ClickOnce does not support requireAdministrator. This application must run as administrator to edit registry.
+-I used "InstallSimple 3.5" to generate the setup file.
