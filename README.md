@@ -15,7 +15,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image F
 
 Which Programming Language Is Used?
 
--Version 1.0 and 1.1 is coded using C#. Version 1.2 and newer versions are coded using VB.NET
+-Version 1.0 and 1.1 is coded using C#. Version 1.2 and newer versions are coded using VB.NET.
 
 Which Software Did You Used To Create The Setup File?
 
