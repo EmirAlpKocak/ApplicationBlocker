@@ -21,4 +21,4 @@ Which Programming Language Is Used?
 
 How did you make the setup file?
 
-I used Microsoft Visual Studio Installer Projects extension.
+I used Microsoft Visual Studio Installer Projects extension. I also packed the installer using iexpress tool to show the license.
