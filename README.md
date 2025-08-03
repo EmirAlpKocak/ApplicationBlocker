@@ -1,24 +1,24 @@
 # ApplicationBlocker
 Application Blocker Software for Windows
 
-What is Application Blocker?
+⚠️ This software is released into the public domain under The Unlicense. No warranty is provided. Use at your own risk.
 
-Application Blocker allows the user to restrict the selected EXE files. For example, if you want to block Google Chrome, you can select chrome.exe file using Application Blocker. You can right click and select Open File Location to easily find the exe file of the shortcut. Blocked applications are listed. You can select them to unblock.
+Application Blocker is a tool for blocking access on the programs you have selected.
 
-How does it work?
+! ! ! Virus or malware warning? False positive.
 
-Versions below 1.5 only blocks the program using Image File Execution Options in registry.
+You can select any exe file to block. Blocked files are listed and can be easily unblocked. You can use this software to control what your chield does or you can use this to restrict access to some applications on special places.
 
-Version 1.5 and future versions blocks the program using Image File Execution Options in registry and file permisions.
+You can set an UI password to block unauthorized people from blocking or unblocking applications.
 
-Which Programming Language Is Used?
+Application Blocker blocks programs using three seperate methods. It is very hard for someone to break lock. Only professional users may open the lock.
 
--Version 1.0 , 1.1: C#
+Contact me via SourceForge or GitHub Issues for support.
 
--Version 1.2 , 1.3 , 1.4: VB.NET
+Application Blocker can automatically check for updates and alert you when a new version is available.
 
--Version 1.5 , Future Versions: C#
+Requires .NET Framework 4.5 and Windows Vista or later.
 
-How did you make the setup file?
+Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET 1.5, 1.6 and future: C#
 
-I used Microsoft Visual Studio Installer Projects extension. I also packed the installer using iexpress tool to show the license.
+Setup File: Microsoft Visual Studio Installer Extension
