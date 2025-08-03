@@ -1,0 +1,20 @@
+C:\Users\Emir\Desktop\Application Blocker\bin\Debug\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker\bin\Debug\Application Blocker.pdb
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application Blocker.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form1.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Properties.Resources.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application Blocker.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application Blocker.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application Blocker.pdb
+C:\Users\Emir\Desktop\Application Blocker\bin\Debug\Application Blocker.exe.config
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Debug\Application Blocker.exe.config
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Debug\Application Blocker.exe
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Debug\Application Blocker.pdb
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Form1.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Properties.Resources.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.exe
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.pdb
