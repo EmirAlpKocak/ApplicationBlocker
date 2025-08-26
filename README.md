@@ -25,4 +25,6 @@ Requires .NET Framework 4.5 and Windows Vista or later.
 
 Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5 and later: C#
 
+UI of the version 1.7.0 and later is based on MetroFramework.
+
 Setup File: Microsoft Visual Studio Installer Extension
