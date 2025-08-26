@@ -3,22 +3,26 @@ Application Blocker Software for Windows
 
 ⚠️ This software is released into the public domain under The Unlicense. No warranty is provided. Use at your own risk.
 
-Application Blocker is a tool for blocking access on the programs you have selected.
+Application Blocker
 
-! ! ! Virus or malware warning? False positive.
+Application Blocker is a software restriction tool for Windows. It can block access to selected programs.
 
-You can select any exe file to block. Blocked files are listed and can be easily unblocked. You can use this software to control what your chield does or you can use this to restrict access to some applications on special places.
+It is very effective and easy to use. You can select the program file and add it to the list.
 
-You can set an UI password to block unauthorized people from blocking or unblocking applications.
+The lock is reliable and very hard to break for normal users.
 
-Application Blocker blocks programs using three seperate methods. It is very hard for someone to break lock. Only professional users may open the lock.
+Application Blocker does not work at background so it does not affect your computer's performance.
 
-Contact me via SourceForge or GitHub Issues for support.
+This program can be used to control your chield or prevent access to programs on special areas like school computers.
 
-Application Blocker can automatically check for updates and alert you when a new version is available.
+You can set an UI password to prevent unauthorized users from blocking and unblocking programs.
+
+The tool can check for updates automatically and alert you when a new version is available.
 
 Requires .NET Framework 4.5 and Windows Vista or later.
 
-Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET 1.5, 1.6 and future: C#
+!!! Virus or malware warning? False positive.
+
+Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5 and later: C#
 
 Setup File: Microsoft Visual Studio Installer Extension
