@@ -1,0 +1,36 @@
+C:\Users\Emir\Desktop\Application Blocker\bin\Release\Application Blocker.exe.config
+C:\Users\Emir\Desktop\Application Blocker\bin\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker\bin\Release\Application Blocker.pdb
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form1.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Properties.Resources.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.pdb
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Release\Application Blocker.exe.config
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Release\Application Blocker.pdb
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form1.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Properties.Resources.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.pdb
+C:\Users\Emir\Desktop\Application Blocker\bin\Release\MetroFramework.dll
+C:\Users\Emir\Desktop\Application Blocker\bin\Release\MetroFramework.Fonts.dll
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application Blocker.csproj.CopyComplete
+C:\Users\Emir\Desktop\Application Blocker - Copy\bin\Release\Application Blocker.exe.config
+C:\Users\Emir\Desktop\Application Blocker - Copy\bin\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker - Copy\bin\Release\Application Blocker.pdb
+C:\Users\Emir\Desktop\Application Blocker - Copy\bin\Release\MetroFramework.dll
+C:\Users\Emir\Desktop\Application Blocker - Copy\bin\Release\MetroFramework.Fonts.dll
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application_Blocker.Form1.resources
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application_Blocker.Properties.Resources.resources
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.csproj.CopyComplete
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.exe
+C:\Users\Emir\Desktop\Application Blocker - Copy\obj\Release\Application Blocker.pdb
