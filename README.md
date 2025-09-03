@@ -17,7 +17,7 @@ This program can be used to control your chield or prevent access to programs on
 
 You can set an UI password to prevent unauthorized users from blocking and unblocking programs.
 
-The tool can check for updates automatically and alert you when a new version is available.
+The tool can check for updates automatically and alert you when a new version is available. It can automatically download and install new versions.
 
 Requires .NET Framework 4.5 and Windows Vista or later.
 
