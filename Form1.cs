@@ -2,12 +2,9 @@
 using System.Collections.Specialized;
 using System.Windows.Forms;
 using System.Security.AccessControl;
-using System.Security.Cryptography;
 using System.IO;
-using Microsoft.VisualBasic;
 using Microsoft.Win32;
 using System.Drawing;
-using System.Text;
 
 namespace Application_Blocker
 {
@@ -59,7 +56,7 @@ namespace Application_Blocker
                     {
                         string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                         version = downloaded.Trim();
-                        if (version != "1.9.0")
+                        if (version != "2.0.0")
                         {
                             if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                             {
@@ -110,40 +107,13 @@ namespace Application_Blocker
         }
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        password3:
-            string currentPassword = Interaction.InputBox("Please enter your current password.", "Change Password");
-            string encryptedStoredPassword = Properties.Settings.Default.Password;
-            string decryptedStoredPassword = Decrypt(encryptedStoredPassword);
-            if (currentPassword == decryptedStoredPassword)
-            {
-                string newPassword = Interaction.InputBox("Please enter your new password.", "Change Password");
-                if (newPassword == "")
-                {
-                    if (MessageBox.Show("Password cannot be empty.", "Password", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
-                    {
-                        goto password3;
-                    }
-                }
-                else
-                {
-                    string encrypted = Encrypt(newPassword);
-                    Properties.Settings.Default.Password = encrypted;
-                    Properties.Settings.Default.Save();
-                    MessageBox.Show("Password is changed.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                if (MessageBox.Show("Current password is incorrect.", "Change Password", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
-                {
-                    goto password3;
-                }
-            }
+            Form3 frm3 = new Form3();
+            frm3.ShowDialog();
         }
 
         private void aboutApplicationBlockerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Application Blocker v1.9.0 - Coded By: Emir Alp Koçak", "About");
+            MessageBox.Show("Application Blocker v2.0.0 - Coded By: Emir Alp Koçak", "About");
         }
 
         private void upgradeSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,7 +151,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "1.9.0")
+                    if (version != "2.0.0")
                     {
                         if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
@@ -323,39 +293,6 @@ namespace Application_Blocker
                 }
             }
         }
-        public static string Encrypt(string plainPassword)
-        {
-            try
-            {
-                byte[] encrypted = ProtectedData.Protect(Encoding.UTF8.GetBytes(plainPassword), null, DataProtectionScope.CurrentUser);
-                return Convert.ToBase64String(encrypted);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Properties.Settings.Default.Password = "";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-                return "";
-            }
-        }
-        public static string Decrypt(string encryptedPassword)
-        {
-            try
-            {
-                byte[] decrypted = ProtectedData.Unprotect(Convert.FromBase64String(encryptedPassword), null, DataProtectionScope.CurrentUser);
-                return Encoding.UTF8.GetString(decrypted);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Properties.Settings.Default.Password = "";
-                Properties.Settings.Default.Save();
-                Application.Restart();
-                return "";
-            }
-        }
-
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try

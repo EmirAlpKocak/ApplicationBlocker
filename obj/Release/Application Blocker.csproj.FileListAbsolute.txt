@@ -38,3 +38,4 @@ C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Release\Met
 C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Release\MetroFramework.Fonts.dll
 C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application Blocker.csproj.CopyComplete
 C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form2.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form3.resources

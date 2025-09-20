@@ -1,55 +1,33 @@
 ﻿using System;
 using System.Drawing;
-using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Application_Blocker
 {
-    public partial class Form2 : MetroFramework.Forms.MetroForm
+    public partial class Form3 : MetroFramework.Forms.MetroForm
     {
-        private bool exitButton = true;
-        public Form2()
+        private bool currentPasswordEntered = false;
+        public Form3()
         {
             InitializeComponent();
             LoadColorSettings();
-            this.FormClosing += new FormClosingEventHandler(Form2_FormClosing);
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
             this.Resizable = false;
-            if (Properties.Settings.Default.Password != "")
-            {
-                label1.Text = "Please enter your password.";
-            }
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Save();
-            Environment.Exit(0);
+            this.Close();
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Password == "")
-            {
-                string password = textBox1.Text;
-                if (password == "")
-                {
-                    MessageBox.Show("Password cannot be empty.", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string encryptedPassowrd = Encrypt(password);
-                    Properties.Settings.Default.Password = encryptedPassowrd;
-                    Properties.Settings.Default.Save();
-                    textBox1.Clear();
-                    label1.Text = "Please enter your password.";
-                }
-            }
-            else
+            if (currentPasswordEntered != true)
             {
                 string currentPassword = textBox1.Text;
                 string encryptedStoredPassword = Properties.Settings.Default.Password;
@@ -57,13 +35,29 @@ namespace Application_Blocker
                 if (currentPassword == decryptedStoredPassword)
                 {
                     textBox1.Clear();
-                    exitButton = false;
-                    this.Close();
+                    label1.Text = "Please enter your new password.";
+                    currentPasswordEntered = true;
                 }
                 else
                 {
-                    MessageBox.Show("Password is incorrect.", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Current password is incorrect.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBox1.Clear();
+                }
+            }
+            else
+            {
+                string newPassword = textBox1.Text;
+                if (newPassword == "")
+                {
+                    MessageBox.Show("Password cannot be empty.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string encrypted = Encrypt(newPassword);
+                    Properties.Settings.Default.Password = encrypted;
+                    Properties.Settings.Default.Save();
+                    MessageBox.Show("Password has been changed.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
             }
         }
@@ -97,13 +91,6 @@ namespace Application_Blocker
                 Properties.Settings.Default.Save();
                 Application.Restart();
                 return "";
-            }
-        }
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (exitButton == true)
-            {
-                Environment.Exit(0);
             }
         }
         private void LoadColorSettings()
