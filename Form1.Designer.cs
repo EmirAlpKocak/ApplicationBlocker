@@ -41,7 +41,6 @@ namespace Application_Blocker
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.unblockAnotherApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upgradeSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.blueDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,12 +54,12 @@ namespace Application_Blocker
             this.purpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yellowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesAutomaticallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutApplicationBlockerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.brownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +83,7 @@ namespace Application_Blocker
             // 
             this.openFileDialog2.Filter = "Applications (*.exe)|*.exe|All files (*.*)|*.*";
             this.openFileDialog2.InitialDirectory = "C:\\Program Files";
-            this.openFileDialog2.Title = "Unblock Another Application";
+            this.openFileDialog2.Title = "Unblock Unlisted Application";
             // 
             // metroTile1
             // 
@@ -127,19 +126,18 @@ namespace Application_Blocker
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.unblockAnotherApplicationToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
-            this.upgradeSettingsToolStripMenuItem,
             this.toolStripMenuItem1,
             this.updateToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.aboutApplicationBlockerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 136);
             // 
             // unblockAnotherApplicationToolStripMenuItem
             // 
             this.unblockAnotherApplicationToolStripMenuItem.Name = "unblockAnotherApplicationToolStripMenuItem";
             this.unblockAnotherApplicationToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.unblockAnotherApplicationToolStripMenuItem.Text = "Unblock Another Application";
+            this.unblockAnotherApplicationToolStripMenuItem.Text = "Unblock Unlisted Application";
             this.unblockAnotherApplicationToolStripMenuItem.ToolTipText = "Unblock an application that isn\'t listed.";
             this.unblockAnotherApplicationToolStripMenuItem.Click += new System.EventHandler(this.unblockAnotherApplicationToolStripMenuItem_Click_1);
             // 
@@ -149,13 +147,6 @@ namespace Application_Blocker
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.ToolTipText = "Change application password.";
-            // 
-            // upgradeSettingsToolStripMenuItem
-            // 
-            this.upgradeSettingsToolStripMenuItem.Name = "upgradeSettingsToolStripMenuItem";
-            this.upgradeSettingsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.upgradeSettingsToolStripMenuItem.Text = "Upgrade Settings";
-            this.upgradeSettingsToolStripMenuItem.ToolTipText = "Upgrade settings to new version.";
             // 
             // toolStripMenuItem1
             // 
@@ -181,14 +172,14 @@ namespace Application_Blocker
             // blueDefaultToolStripMenuItem
             // 
             this.blueDefaultToolStripMenuItem.Name = "blueDefaultToolStripMenuItem";
-            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.blueDefaultToolStripMenuItem.Text = "Blue (Default)";
             this.blueDefaultToolStripMenuItem.Click += new System.EventHandler(this.blueDefaultToolStripMenuItem_Click);
             // 
             // blackToolStripMenuItem
             // 
             this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-            this.blackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.blackToolStripMenuItem.Text = "Black (Dark)";
             this.blackToolStripMenuItem.Visible = false;
             this.blackToolStripMenuItem.Click += new System.EventHandler(this.blackToolStripMenuItem_Click);
@@ -196,14 +187,14 @@ namespace Application_Blocker
             // silverToolStripMenuItem
             // 
             this.silverToolStripMenuItem.Name = "silverToolStripMenuItem";
-            this.silverToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silverToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.silverToolStripMenuItem.Text = "Silver";
             this.silverToolStripMenuItem.Click += new System.EventHandler(this.silverToolStripMenuItem_Click);
             // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
-            this.greenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.greenToolStripMenuItem.Text = "Green";
             this.greenToolStripMenuItem.Visible = false;
             this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenToolStripMenuItem_Click);
@@ -211,21 +202,21 @@ namespace Application_Blocker
             // limeToolStripMenuItem
             // 
             this.limeToolStripMenuItem.Name = "limeToolStripMenuItem";
-            this.limeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.limeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.limeToolStripMenuItem.Text = "Lime";
             this.limeToolStripMenuItem.Click += new System.EventHandler(this.limeToolStripMenuItem_Click);
             // 
             // tealToolStripMenuItem
             // 
             this.tealToolStripMenuItem.Name = "tealToolStripMenuItem";
-            this.tealToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tealToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.tealToolStripMenuItem.Text = "Teal";
             this.tealToolStripMenuItem.Click += new System.EventHandler(this.tealToolStripMenuItem_Click);
             // 
             // orangeToolStripMenuItem
             // 
             this.orangeToolStripMenuItem.Name = "orangeToolStripMenuItem";
-            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.orangeToolStripMenuItem.Text = "Orange";
             this.orangeToolStripMenuItem.Visible = false;
             this.orangeToolStripMenuItem.Click += new System.EventHandler(this.orangeToolStripMenuItem_Click);
@@ -233,21 +224,21 @@ namespace Application_Blocker
             // pinkToolStripMenuItem
             // 
             this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
-            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.pinkToolStripMenuItem.Text = "Pink";
             this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkToolStripMenuItem_Click);
             // 
             // magentaToolStripMenuItem
             // 
             this.magentaToolStripMenuItem.Name = "magentaToolStripMenuItem";
-            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.magentaToolStripMenuItem.Text = "Magenta";
             this.magentaToolStripMenuItem.Click += new System.EventHandler(this.magentaToolStripMenuItem_Click);
             // 
             // purpleToolStripMenuItem
             // 
             this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
-            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.purpleToolStripMenuItem.Text = "Purple";
             this.purpleToolStripMenuItem.Visible = false;
             this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
@@ -255,7 +246,7 @@ namespace Application_Blocker
             // redToolStripMenuItem
             // 
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Visible = false;
             this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
@@ -263,10 +254,17 @@ namespace Application_Blocker
             // yellowToolStripMenuItem
             // 
             this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
-            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.yellowToolStripMenuItem.Text = "Yellow";
             this.yellowToolStripMenuItem.Visible = false;
             this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowToolStripMenuItem_Click);
+            // 
+            // brownToolStripMenuItem
+            // 
+            this.brownToolStripMenuItem.Name = "brownToolStripMenuItem";
+            this.brownToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.brownToolStripMenuItem.Text = "Brown";
+            this.brownToolStripMenuItem.Visible = false;
             // 
             // updateToolStripMenuItem
             // 
@@ -309,13 +307,6 @@ namespace Application_Blocker
             this.aboutApplicationBlockerToolStripMenuItem.Text = "About Application Blocker";
             this.aboutApplicationBlockerToolStripMenuItem.ToolTipText = "Show about page.";
             // 
-            // brownToolStripMenuItem
-            // 
-            this.brownToolStripMenuItem.Name = "brownToolStripMenuItem";
-            this.brownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.brownToolStripMenuItem.Text = "Brown";
-            this.brownToolStripMenuItem.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,7 +337,6 @@ namespace Application_Blocker
         private MetroFramework.Components.MetroToolTip metroToolTip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upgradeSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesAutomaticallyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;

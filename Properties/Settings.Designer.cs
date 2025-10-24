@@ -48,18 +48,6 @@ namespace Application_Blocker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool isUpgradedMessageShown {
-            get {
-                return ((bool)(this["isUpgradedMessageShown"]));
-            }
-            set {
-                this["isUpgradedMessageShown"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool isAutoUpdatesEnabled {
             get {
@@ -79,6 +67,18 @@ namespace Application_Blocker.Properties {
             }
             set {
                 this["Color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isSettingsUpgraded {
+            get {
+                return ((bool)(this["isSettingsUpgraded"]));
+            }
+            set {
+                this["isSettingsUpgraded"] = value;
             }
         }
     }

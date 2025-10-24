@@ -39,3 +39,5 @@ C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\bin\Debug\Metro
 C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application Blocker.csproj.CopyComplete
 C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form2.resources
 C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form3.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Form2.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Form3.resources

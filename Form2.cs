@@ -74,7 +74,7 @@ namespace Application_Blocker
                 byte[] encrypted = ProtectedData.Protect(Encoding.UTF8.GetBytes(plainPassword), null, DataProtectionScope.CurrentUser);
                 return Convert.ToBase64String(encrypted);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Properties.Settings.Default.Password = "";
@@ -90,7 +90,7 @@ namespace Application_Blocker
                 byte[] decrypted = ProtectedData.Unprotect(Convert.FromBase64String(encryptedPassword), null, DataProtectionScope.CurrentUser);
                 return Encoding.UTF8.GetString(decrypted);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Properties.Settings.Default.Password = "";

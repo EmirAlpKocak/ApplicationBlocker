@@ -17,7 +17,6 @@ namespace Application_Blocker
             /*this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;*/
             changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
-            upgradeSettingsToolStripMenuItem.Click += upgradeSettingsToolStripMenuItem_Click;
             checkForUpdatesToolStripMenuItem.Click += checkForUpdatesToolStripMenuItem_Click;
             checkForUpdatesAutomaticallyToolStripMenuItem.Click += checkForUpdatesAutomaticallyToolStripMenuItem_Click;
             aboutApplicationBlockerToolStripMenuItem.Click += aboutApplicationBlockerToolStripMenuItem_Click;
@@ -30,19 +29,11 @@ namespace Application_Blocker
             listBox1.ForeColor = Color.Black;*/
             listBox1.Font = new Font("Segoe UI", 10);
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-            if (Properties.Settings.Default.isUpgradedMessageShown == false)
+            if (!Properties.Settings.Default.isSettingsUpgraded)
             {
-                if (MessageBox.Show("If you have upgraded to a new version of Application Blocker, your settings should be upgraded as well to avoid losing the list of blocked applications. If available, would you like to upgrade settings now? To upgrade later, go to More Options -> Upgrade Settings. If you haven't installed Application Blocker before, click No.", "Upgrade Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    Properties.Settings.Default.Upgrade();
-                    Properties.Settings.Default.isUpgradedMessageShown = true;
-                    Properties.Settings.Default.Save();
-                }
-                else
-                {
-                    Properties.Settings.Default.isUpgradedMessageShown = true;
-                    Properties.Settings.Default.Save();
-                }
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.isSettingsUpgraded = true;
+                Properties.Settings.Default.Save();
             }
             frm2.ShowDialog();
             LoadSavedItems();
@@ -56,7 +47,7 @@ namespace Application_Blocker
                     {
                         string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                         version = downloaded.Trim();
-                        if (version != "2.0.0")
+                        if (version != "2.1.0")
                         {
                             if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                             {
@@ -113,21 +104,8 @@ namespace Application_Blocker
 
         private void aboutApplicationBlockerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Application Blocker v2.0.0 - Coded By: Emir Alp Koçak", "About");
+            MessageBox.Show("Application Blocker v2.1.0 - Coded By: Emir Alp Koçak", "About");
         }
-
-        private void upgradeSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("This option will upgrade old settings to this version. Use this if you have lost your list of blocked items after an update. Please note that your password will be reverted to the old version. Would you like to upgrade settings?", "Upgrade Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.isUpgradedMessageShown = true;
-                Properties.Settings.Default.Save();
-                MessageBox.Show("Successfully upgraded settings. Click OK to restart Application Blocker.", "Upgrade Settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Application.Restart();
-            }
-        }
-
         private void checkForUpdatesAutomaticallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (checkForUpdatesAutomaticallyToolStripMenuItem.Checked)
@@ -151,7 +129,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.0.0")
+                    if (version != "2.1.0")
                     {
                         if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
@@ -314,8 +292,6 @@ namespace Application_Blocker
 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
 changePasswordToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
 changePasswordToolStripMenuItem.ForeColor = Color.White;
-upgradeSettingsToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
 updateToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
 updateToolStripMenuItem.ForeColor = Color.White;
 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
@@ -361,8 +337,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.Black;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Black;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.Black;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Black;
@@ -420,8 +394,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.DimGray;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.DimGray;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.DimGray;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.DimGray;
@@ -473,8 +445,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.Green;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Green;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.Green;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Green;
@@ -526,8 +496,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.OliveDrab;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.OliveDrab;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.OliveDrab;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.OliveDrab;
@@ -579,8 +547,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.Teal;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Teal;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.Teal;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Teal;
@@ -632,8 +598,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.DarkOrange;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.DarkOrange;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.DarkOrange;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.DarkOrange;
@@ -685,8 +649,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.HotPink;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.HotPink;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.HotPink;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.HotPink;
@@ -738,8 +700,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.DeepPink;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.DeepPink;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.DeepPink;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.DeepPink;
@@ -791,8 +751,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.Purple;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Purple;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.Purple;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Purple;
@@ -844,8 +802,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
                 changePasswordToolStripMenuItem.BackColor = Color.Red;
                 changePasswordToolStripMenuItem.ForeColor = Color.White;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Red;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.White;
                 updateToolStripMenuItem.BackColor = Color.Red;
                 updateToolStripMenuItem.ForeColor = Color.White;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Red;
@@ -897,8 +853,6 @@ yellowToolStripMenuItem.ForeColor = Color.White;
                 unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.Black;
                 changePasswordToolStripMenuItem.BackColor = Color.Yellow;
                 changePasswordToolStripMenuItem.ForeColor = Color.Black;
-                upgradeSettingsToolStripMenuItem.BackColor = Color.Yellow;
-                upgradeSettingsToolStripMenuItem.ForeColor = Color.Black;
                 updateToolStripMenuItem.BackColor = Color.Yellow;
                 updateToolStripMenuItem.ForeColor = Color.Black;
                 checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.Yellow;
