@@ -1,0 +1,8 @@
+*Unblocking Applications "You can select an exe file to block." to unblock !! OK
+* make bold (strong) text at Main User Interface !! OK
+* updates = updates anytime to updates at anytime !! OK
+* contact and support to contact title !! OK
+* change update screenshot !!
+* version. You don't need to uninstall old version, >> add the old version !! OK
+* change update screenshoot to include Help !!
+* change password screenshots to include new password dialog !!
