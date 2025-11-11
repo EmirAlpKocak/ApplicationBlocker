@@ -44,8 +44,8 @@
 			<param name="Local" value="PasswordPage.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="Upgrading Settings">
-			<param name="Local" value="UpgradeSettings.html">
+			<param name="Name" value="Colors">
+			<param name="Local" value="ColorPage.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Updates">
