@@ -5,6 +5,7 @@ using System.Security.AccessControl;
 using System.IO;
 using Microsoft.Win32;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace Application_Blocker
 {
@@ -47,9 +48,18 @@ namespace Application_Blocker
                     {
                         string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                         version = downloaded.Trim();
-                        if (version != "2.1.0")
+                        if (version != "2.2.0")
                         {
-                            if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            int result;
+                            if (Environment.Is64BitOperatingSystem)
+                            {
+                                result = Dialog64.ShowUpdateMessage(this.Handle, "Would you like to download and install version " + version + " right now?");
+                            }
+                            else
+                            {
+                                result = Dialog32.ShowUpdateMessage(this.Handle, "Would you like to download and install version " + version + " right now?");
+                            }
+                            if (result == 1)
                             {
                                 try
                                 {
@@ -59,7 +69,14 @@ namespace Application_Blocker
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Unable to update Application Blocker. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    if (Environment.Is64BitOperatingSystem)
+                                    {
+                                        Dialog64.ShowUpdateError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                                    }
+                                    else
+                                    {
+                                        Dialog32.ShowUpdateError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                                    }
                                 }
                             }
                         }
@@ -67,7 +84,14 @@ namespace Application_Blocker
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Unable to check for updates. Please check your internet connection or your firewall settings. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.ShowUpdateCheckError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                    }
+                    else
+                    {
+                        Dialog32.ShowUpdateCheckError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                    }
                 }
             }
             else
@@ -104,7 +128,14 @@ namespace Application_Blocker
 
         private void aboutApplicationBlockerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Application Blocker v2.1.0 - Coded By: Emir Alp Koçak", "About");
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ShowAboutBox(this.Handle);
+            }
+            else
+            {
+                Dialog32.ShowAboutBox(this.Handle);
+            }
         }
         private void checkForUpdatesAutomaticallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -129,9 +160,18 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.1.0")
+                    if (version != "2.2.0")
                     {
-                        if (MessageBox.Show("A new version is available. Would you like to download and install version " + version + " right now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        int result;
+                        if (Environment.Is64BitOperatingSystem)
+                        {
+                            result = Dialog64.ShowUpdateMessage(this.Handle, "Would you like to download and install version " + version + " right now?");
+                        }
+                        else
+                        {
+                            result = Dialog32.ShowUpdateMessage(this.Handle, "Would you like to download and install version " + version + " right now?");
+                        }
+                        if (result == 1)
                         {
                             try
                             {
@@ -141,19 +181,40 @@ namespace Application_Blocker
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Unable to update Application Blocker. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (Environment.Is64BitOperatingSystem)
+                                {
+                                    Dialog64.ShowUpdateError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                                }
+                                else
+                                {
+                                    Dialog32.ShowUpdateError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                                }
                             }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No new versions available.", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (Environment.Is64BitOperatingSystem)
+                        {
+                            Dialog64.NoNewVersionMessage(this.Handle);
+                        }
+                        else
+                        {
+                            Dialog32.NoNewVersionMessage(this.Handle);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to check for updates. Please check your internet connection or your firewall settings. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    Dialog64.ShowUpdateCheckError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                }
+                else
+                {
+                    Dialog32.ShowUpdateCheckError(this.Handle, "Please check your internet connection or your firewall settings. Error: " + ex.Message);
+                }
             }
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -191,7 +252,14 @@ namespace Application_Blocker
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Unable to block application. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.ShowBlockError(this.Handle, "Error: " + ex.Message);
+                    }
+                    else
+                    {
+                        Dialog32.ShowBlockError(this.Handle, "Error: " + ex.Message);
+                    }
                 }
             }
         }
@@ -225,12 +293,26 @@ namespace Application_Blocker
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Unable to unblock application. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.ShowUnblockError(this.Handle, "Error: " + ex.Message);
+                    }
+                    else
+                    {
+                        Dialog32.ShowUnblockError(this.Handle, "Error: " + ex.Message);
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Please select an application from the list.", "Unblock Application");
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    Dialog64.ShowSelectApp(this.Handle);
+                }
+                else
+                {
+                    Dialog32.ShowSelectApp(this.Handle);
+                }
             }
         }
 
@@ -263,11 +345,25 @@ namespace Application_Blocker
                     {
                         regKey.DeleteValue(openFileDialog2.SafeFileName, false);
                     }
-                    MessageBox.Show("Successfully unblocked " + openFileDialog2.FileName, "Unblock Application", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.SuccessfulUnblock(this.Handle, "Successfully unblocked " + openFileDialog2.FileName);
+                    }
+                    else
+                    {
+                        Dialog32.SuccessfulUnblock(this.Handle, "Successfully unblocked " + openFileDialog2.FileName);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Unable to unblock application. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.ShowUnblockError(this.Handle, "Error: " + ex.Message);
+                    }
+                    else
+                    {
+                        Dialog32.ShowUnblockError(this.Handle, "Error: " + ex.Message);
+                    }
                 }
             }
         }
@@ -279,7 +375,14 @@ namespace Application_Blocker
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to open help file. Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    Dialog64.ShowHelpError(this.Handle, "Error: " + ex.Message);
+                }
+                else
+                {
+                    Dialog32.ShowHelpError(this.Handle, "Error: " + ex.Message);
+                }
             }
         }
         private void LoadColorSettings()
@@ -904,7 +1007,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Blue";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -913,7 +1023,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Black";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -921,7 +1038,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Silver";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -930,7 +1054,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Green";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -938,7 +1069,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Lime";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -946,7 +1084,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Teal";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -955,7 +1100,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Orange";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -963,7 +1115,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Brown";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -971,7 +1130,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Pink";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -979,7 +1145,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
         {
             Properties.Settings.Default.Color = "Magenta";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -988,7 +1161,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Purple";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -997,7 +1177,14 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Red";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
 
@@ -1006,8 +1193,85 @@ yellowToolStripMenuItem.ForeColor = Color.White;
             MessageBox.Show("This color theme is experimental and may not give the best experience.", "Experimental", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Properties.Settings.Default.Color = "Yellow";
             Properties.Settings.Default.Save();
-            MessageBox.Show("Color has been changed. Please click OK to restart Application Blocker.", "Color", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Environment.Is64BitOperatingSystem)
+            {
+                Dialog64.ColorChanged(this.Handle);
+            }
+            else
+            {
+                Dialog32.ColorChanged(this.Handle);
+            }
             Application.Restart();
         }
+    }
+    public class Dialog64
+    {
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern int ShowUpdateMessage(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowAboutBox(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUpdateError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void NoNewVersionMessage(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUpdateCheckError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowBlockError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUnblockError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowSelectApp(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowHelpError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void SuccessfulUnblock(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void ColorChanged(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordEmptyError(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void IncorrectPasswordError(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordWarning(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void CurrentPasswordIncorrect(IntPtr hwnd);
+        [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordChanged(IntPtr hwnd);
+    }
+    public class Dialog32
+    {
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern int ShowUpdateMessage(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowAboutBox(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUpdateError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void NoNewVersionMessage(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUpdateCheckError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowBlockError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowUnblockError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowSelectApp(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ShowHelpError(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void SuccessfulUnblock(IntPtr hwnd, string msg);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void ColorChanged(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordEmptyError(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void IncorrectPasswordError(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordWarning(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void CurrentPasswordIncorrect(IntPtr hwnd);
+        [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
+        public static extern void PasswordChanged(IntPtr hwnd);
     }
 }

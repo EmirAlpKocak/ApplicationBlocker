@@ -13,11 +13,73 @@ namespace Application_Blocker
         {
             InitializeComponent();
             LoadColorSettings();
+            textBox1.KeyDown += new KeyEventHandler(TextBox1_KeyDown);
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
             this.Resizable = false;
+        }
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (currentPasswordEntered != true)
+                {
+                    string currentPassword = textBox1.Text;
+                    string encryptedStoredPassword = Properties.Settings.Default.Password;
+                    string decryptedStoredPassword = Decrypt(encryptedStoredPassword);
+                    if (currentPassword == decryptedStoredPassword)
+                    {
+                        textBox1.Clear();
+                        label1.Text = "Please enter your new password.";
+                        currentPasswordEntered = true;
+                    }
+                    else
+                    {
+                        if (Environment.Is64BitOperatingSystem)
+                        {
+                            Dialog64.CurrentPasswordIncorrect(this.Handle);
+                        }
+                        else
+                        {
+                            Dialog32.CurrentPasswordIncorrect(this.Handle);
+                        }
+                        textBox1.Clear();
+                    }
+                }
+                else
+                {
+                    string newPassword = textBox1.Text;
+                    if (newPassword == "")
+                    {
+                        if (Environment.Is64BitOperatingSystem)
+                        {
+                            Dialog64.PasswordEmptyError(this.Handle);
+                        }
+                        else
+                        {
+                            Dialog32.PasswordEmptyError(this.Handle);
+                        }
+                    }
+                    else
+                    {
+                        string encrypted = Encrypt(newPassword);
+                        Properties.Settings.Default.Password = encrypted;
+                        Properties.Settings.Default.Save();
+                        if (Environment.Is64BitOperatingSystem)
+                        {
+                            Dialog64.PasswordChanged(this.Handle);
+                        }
+                        else
+                        {
+                            Dialog32.PasswordChanged(this.Handle);
+                        }
+                        this.Close();
+                    }
+                }
+            }
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
@@ -40,7 +102,14 @@ namespace Application_Blocker
                 }
                 else
                 {
-                    MessageBox.Show("Current password is incorrect.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.CurrentPasswordIncorrect(this.Handle);
+                    }
+                    else
+                    {
+                        Dialog32.CurrentPasswordIncorrect(this.Handle);
+                    }
                     textBox1.Clear();
                 }
             }
@@ -49,19 +118,33 @@ namespace Application_Blocker
                 string newPassword = textBox1.Text;
                 if (newPassword == "")
                 {
-                    MessageBox.Show("Password cannot be empty.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.PasswordEmptyError(this.Handle);
+                    }
+                    else
+                    {
+                        Dialog32.PasswordEmptyError(this.Handle);
+                    }
                 }
                 else
                 {
                     string encrypted = Encrypt(newPassword);
                     Properties.Settings.Default.Password = encrypted;
                     Properties.Settings.Default.Save();
-                    MessageBox.Show("Password has been changed.", "Change Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Environment.Is64BitOperatingSystem)
+                    {
+                        Dialog64.PasswordChanged(this.Handle);
+                    }
+                    else
+                    {
+                        Dialog32.PasswordChanged(this.Handle);
+                    }
                     this.Close();
                 }
             }
         }
-        public static string Encrypt(string plainPassword)
+        public string Encrypt(string plainPassword)
         {
             try
             {
@@ -70,14 +153,21 @@ namespace Application_Blocker
             }
             catch (Exception)
             {
-                MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    Dialog64.PasswordWarning(this.Handle);
+                }
+                else
+                {
+                    Dialog32.PasswordWarning(this.Handle);
+                }
                 Properties.Settings.Default.Password = "";
                 Properties.Settings.Default.Save();
                 Application.Restart();
                 return "";
             }
         }
-        public static string Decrypt(string encryptedPassword)
+        public string Decrypt(string encryptedPassword)
         {
             try
             {
@@ -86,7 +176,14 @@ namespace Application_Blocker
             }
             catch (Exception)
             {
-                MessageBox.Show("The way Application Blocker handles password has been changed. You must reset your password.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    Dialog64.PasswordWarning(this.Handle);
+                }
+                else
+                {
+                    Dialog32.PasswordWarning(this.Handle);
+                }
                 Properties.Settings.Default.Password = "";
                 Properties.Settings.Default.Save();
                 Application.Restart();
