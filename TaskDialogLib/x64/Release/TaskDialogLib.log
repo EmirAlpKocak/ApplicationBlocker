@@ -1,0 +1,8 @@
+﻿  dllmain.cpp
+     Creating library C:\Users\Emir\Desktop\TaskDialogLib\x64\Release\TaskDialogLib.lib and object C:\Users\Emir\Desktop\TaskDialogLib\x64\Release\TaskDialogLib.exp
+  Generating code
+  2 of 16 functions (12.5%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  TaskDialogLib.vcxproj -> C:\Users\Emir\Desktop\TaskDialogLib\x64\Release\TaskDialogLib.dll
