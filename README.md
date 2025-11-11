@@ -23,8 +23,8 @@ Requires .NET Framework 4.5 and Windows Vista or later.
 
 !!! Virus or malware warning? False positive.
 
-Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5 to 2.1.0: C# | 2.2.0 and later: C# and C++
+Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5.0 to 2.1.0: C# | 2.2.0 and later: C# and C++
 
 UI of the version 1.7.0 and later is based on MetroFramework. 2.2.0 and later uses a C++ DLL for Task Dialogs, a replacement to simple messageboxes.
 
-Setup File: Microsoft Visual Studio Installer Extension
+Setup File: 1.0 to 1.4: InstallSimple and Windows Built-in IExpress - *.exe file format | 1.5.0 and later: Microsoft Visual Studio Installer Extension (VSIX) - *.msi file format
