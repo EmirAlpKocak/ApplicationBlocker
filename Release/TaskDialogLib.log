@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  dllmain.cpp
+     Creating library C:\Users\Emir\Desktop\Everything\Projects\C++\TaskDialogLib\Release\TaskDialogLib.lib and object C:\Users\Emir\Desktop\Everything\Projects\C++\TaskDialogLib\Release\TaskDialogLib.exp
+  Generating code
+  16 of 16 functions (100.0%) were compiled.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  TaskDialogLib.vcxproj -> C:\Users\Emir\Desktop\Everything\Projects\C++\TaskDialogLib\Release\TaskDialogLib.dll
