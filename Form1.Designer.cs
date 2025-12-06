@@ -59,8 +59,20 @@ namespace Application_Blocker
             this.checkForUpdatesAutomaticallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactSendFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutApplicationBlockerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.standartBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -129,9 +141,10 @@ namespace Application_Blocker
             this.toolStripMenuItem1,
             this.updateToolStripMenuItem,
             this.helpToolStripMenuItem,
+            this.contactSendFeedbackToolStripMenuItem,
             this.aboutApplicationBlockerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 180);
             // 
             // unblockAnotherApplicationToolStripMenuItem
             // 
@@ -172,14 +185,14 @@ namespace Application_Blocker
             // blueDefaultToolStripMenuItem
             // 
             this.blueDefaultToolStripMenuItem.Name = "blueDefaultToolStripMenuItem";
-            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.blueDefaultToolStripMenuItem.Text = "Blue (Default)";
             this.blueDefaultToolStripMenuItem.Click += new System.EventHandler(this.blueDefaultToolStripMenuItem_Click);
             // 
             // blackToolStripMenuItem
             // 
             this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-            this.blackToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.blackToolStripMenuItem.Text = "Black (Dark)";
             this.blackToolStripMenuItem.Visible = false;
             this.blackToolStripMenuItem.Click += new System.EventHandler(this.blackToolStripMenuItem_Click);
@@ -187,14 +200,14 @@ namespace Application_Blocker
             // silverToolStripMenuItem
             // 
             this.silverToolStripMenuItem.Name = "silverToolStripMenuItem";
-            this.silverToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.silverToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.silverToolStripMenuItem.Text = "Silver";
             this.silverToolStripMenuItem.Click += new System.EventHandler(this.silverToolStripMenuItem_Click);
             // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
-            this.greenToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.greenToolStripMenuItem.Text = "Green";
             this.greenToolStripMenuItem.Visible = false;
             this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenToolStripMenuItem_Click);
@@ -202,21 +215,21 @@ namespace Application_Blocker
             // limeToolStripMenuItem
             // 
             this.limeToolStripMenuItem.Name = "limeToolStripMenuItem";
-            this.limeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.limeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.limeToolStripMenuItem.Text = "Lime";
             this.limeToolStripMenuItem.Click += new System.EventHandler(this.limeToolStripMenuItem_Click);
             // 
             // tealToolStripMenuItem
             // 
             this.tealToolStripMenuItem.Name = "tealToolStripMenuItem";
-            this.tealToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.tealToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tealToolStripMenuItem.Text = "Teal";
             this.tealToolStripMenuItem.Click += new System.EventHandler(this.tealToolStripMenuItem_Click);
             // 
             // orangeToolStripMenuItem
             // 
             this.orangeToolStripMenuItem.Name = "orangeToolStripMenuItem";
-            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.orangeToolStripMenuItem.Text = "Orange";
             this.orangeToolStripMenuItem.Visible = false;
             this.orangeToolStripMenuItem.Click += new System.EventHandler(this.orangeToolStripMenuItem_Click);
@@ -224,21 +237,21 @@ namespace Application_Blocker
             // pinkToolStripMenuItem
             // 
             this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
-            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pinkToolStripMenuItem.Text = "Pink";
             this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkToolStripMenuItem_Click);
             // 
             // magentaToolStripMenuItem
             // 
             this.magentaToolStripMenuItem.Name = "magentaToolStripMenuItem";
-            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.magentaToolStripMenuItem.Text = "Magenta";
             this.magentaToolStripMenuItem.Click += new System.EventHandler(this.magentaToolStripMenuItem_Click);
             // 
             // purpleToolStripMenuItem
             // 
             this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
-            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.purpleToolStripMenuItem.Text = "Purple";
             this.purpleToolStripMenuItem.Visible = false;
             this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
@@ -246,7 +259,7 @@ namespace Application_Blocker
             // redToolStripMenuItem
             // 
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Visible = false;
             this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
@@ -254,7 +267,7 @@ namespace Application_Blocker
             // yellowToolStripMenuItem
             // 
             this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
-            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.yellowToolStripMenuItem.Text = "Yellow";
             this.yellowToolStripMenuItem.Visible = false;
             this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowToolStripMenuItem_Click);
@@ -262,7 +275,7 @@ namespace Application_Blocker
             // brownToolStripMenuItem
             // 
             this.brownToolStripMenuItem.Name = "brownToolStripMenuItem";
-            this.brownToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.brownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.brownToolStripMenuItem.Text = "Brown";
             this.brownToolStripMenuItem.Visible = false;
             // 
@@ -300,12 +313,93 @@ namespace Application_Blocker
             this.helpToolStripMenuItem.ToolTipText = "Show help file.";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
+            // contactSendFeedbackToolStripMenuItem
+            // 
+            this.contactSendFeedbackToolStripMenuItem.Name = "contactSendFeedbackToolStripMenuItem";
+            this.contactSendFeedbackToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.contactSendFeedbackToolStripMenuItem.Text = "Contact / Send Feedback";
+            this.contactSendFeedbackToolStripMenuItem.ToolTipText = "Contact me if you have a bug report or suggestion.";
+            this.contactSendFeedbackToolStripMenuItem.Click += new System.EventHandler(this.contactSendFeedbackToolStripMenuItem_Click);
+            // 
             // aboutApplicationBlockerToolStripMenuItem
             // 
             this.aboutApplicationBlockerToolStripMenuItem.Name = "aboutApplicationBlockerToolStripMenuItem";
             this.aboutApplicationBlockerToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.aboutApplicationBlockerToolStripMenuItem.Text = "About Application Blocker";
             this.aboutApplicationBlockerToolStripMenuItem.ToolTipText = "Show about page.";
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.standartBlockToolStripMenuItem,
+            this.passwordLockToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
+            // 
+            // standartBlockToolStripMenuItem
+            // 
+            this.standartBlockToolStripMenuItem.Name = "standartBlockToolStripMenuItem";
+            this.standartBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.standartBlockToolStripMenuItem.Text = "Standart Block";
+            this.standartBlockToolStripMenuItem.ToolTipText = "Block applications completely.";
+            this.standartBlockToolStripMenuItem.Click += new System.EventHandler(this.standartBlockToolStripMenuItem_Click);
+            // 
+            // passwordLockToolStripMenuItem
+            // 
+            this.passwordLockToolStripMenuItem.Name = "passwordLockToolStripMenuItem";
+            this.passwordLockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.passwordLockToolStripMenuItem.Text = "Password Lock";
+            this.passwordLockToolStripMenuItem.ToolTipText = "Lock applications with Application Blocker password.";
+            this.passwordLockToolStripMenuItem.Click += new System.EventHandler(this.passwordLockToolStripMenuItem_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip3;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Application Blocker";
+            this.notifyIcon1.Visible = true;
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem1,
+            this.aboutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(172, 92);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.ToolTipText = "Show Application Blocker window.";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
+            // 
+            // checkForUpdatesToolStripMenuItem1
+            // 
+            this.checkForUpdatesToolStripMenuItem1.Name = "checkForUpdatesToolStripMenuItem1";
+            this.checkForUpdatesToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.checkForUpdatesToolStripMenuItem1.Text = "Check for Updates";
+            this.checkForUpdatesToolStripMenuItem1.ToolTipText = "Check for latest updates.";
+            this.checkForUpdatesToolStripMenuItem1.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem1_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.ToolTipText = "Show about page.";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.ToolTipText = "Exit Application Blocker.";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -322,6 +416,8 @@ namespace Application_Blocker
             this.Text = "Application Blocker";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -357,6 +453,16 @@ namespace Application_Blocker
         private System.Windows.Forms.ToolStripMenuItem redToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yellowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem brownToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem standartBlockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordLockToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactSendFeedbackToolStripMenuItem;
     }
 }
 
