@@ -1,0 +1,2 @@
+C:\Users\Emir\Desktop\TaskDialogLib\x64\Release\TaskDialogLib.dll
+C:\Users\Emir\Desktop\Everything\Projects\C++\TaskDialogLib\x64\Release\TaskDialogLib.dll
