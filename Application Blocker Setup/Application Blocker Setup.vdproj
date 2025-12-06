@@ -15,44 +15,56 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_5514B6914DF74984800E5FF82AF4E65A"
+        "MsmKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_901F58A0ED8E44C297D99947E45BD009"
+        "MsmKey" = "8:_6D7186565AEA40EEB0AB8993B8873380"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8D4D2F0C072246F3BBB4F488405341DA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B0A018671557217EB0BB3B7D2E757CC8"
-        "OwnerKey" = "8:_901F58A0ED8E44C297D99947E45BD009"
+        "OwnerKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D544A44EB83A48F69DBC719960CA4B7C"
+        "MsmKey" = "8:_B6CBA7948D7648E2BB4C9B4998A746B3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E2208EBA8573471DB021B931C29ADAB4"
+        "MsmKey" = "8:_BBD440F4FF9C4EC6973F3CB0811F7843"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_901F58A0ED8E44C297D99947E45BD009"
+        "MsmKey" = "8:_E056F0EEF3E34F2ABAE966A6B2780447"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B0A018671557217EB0BB3B7D2E757CC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -150,10 +162,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5514B6914DF74984800E5FF82AF4E65A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_196C7BDAADE04E83BC2EC67BD14FA901"
             {
-            "SourcePath" = "8:..\\bin\\Release\\Help.chm"
-            "TargetName" = "8:Help.chm"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_196C7BDAADE04E83BC2EC67BD14FA901"
+                    {
+                    "Name" = "8:Application Blocker.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -170,21 +193,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_901F58A0ED8E44C297D99947E45BD009"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D7186565AEA40EEB0AB8993B8873380"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_901F58A0ED8E44C297D99947E45BD009"
-                    {
-                    "Name" = "8:Application Blocker.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\bin\\Release\\TaskDlg32.dll"
+            "TargetName" = "8:TaskDlg32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D4D2F0C072246F3BBB4F488405341DA"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Task64.xml"
+            "TargetName" = "8:Task64.xml"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -232,10 +264,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D544A44EB83A48F69DBC719960CA4B7C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6CBA7948D7648E2BB4C9B4998A746B3"
             {
-            "SourcePath" = "8:..\\bin\\Release\\TaskDlg32.dll"
-            "TargetName" = "8:TaskDlg32.dll"
+            "SourcePath" = "8:..\\bin\\Release\\Task32.xml"
+            "TargetName" = "8:Task32.xml"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -252,10 +284,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E2208EBA8573471DB021B931C29ADAB4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBD440F4FF9C4EC6973F3CB0811F7843"
             {
             "SourcePath" = "8:..\\bin\\Release\\TaskDlg64.dll"
             "TargetName" = "8:TaskDlg64.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E056F0EEF3E34F2ABAE966A6B2780447"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Help.chm"
+            "TargetName" = "8:Help.chm"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -328,15 +380,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Application Blocker"
-        "ProductCode" = "8:{ADEAF0D3-8EA4-41BB-949B-B13684F32481}"
-        "PackageCode" = "8:{195423F8-B58A-4656-A55B-B3E4057E47D5}"
+        "ProductCode" = "8:{B7B606BF-B534-45F8-A896-F949A2C70FD1}"
+        "PackageCode" = "8:{492BBC0B-B670-407D-A7D3-58A05410342A}"
         "UpgradeCode" = "8:{D8584CD0-8AB6-405A-8A3B-3A6279FD20EC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.2.0"
+        "ProductVersion" = "8:2.3.0"
         "Manufacturer" = "8:Emir Alp Koçak"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -346,7 +398,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Application Blocker"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_901F58A0ED8E44C297D99947E45BD009"
+        "ARPPRODUCTICON" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -449,7 +501,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_08677BA3AA7C41E0A00896DB461E0DF5"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4E234C8E397F42F68B9EB5258278691C"
             {
             "Name" = "8:Application Blocker"
             "Arguments" = "8:"
@@ -457,24 +509,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_901F58A0ED8E44C297D99947E45BD009"
-            "Folder" = "8:_1409B986C4574F838E18D3F98518C2CB"
-            "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_901F58A0ED8E44C297D99947E45BD009"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4956DF90562949E4B47B040A9B91D948"
-            {
-            "Name" = "8:Application Blocker"
-            "Arguments" = "8:"
-            "Description" = "8:Application Blocker"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:32512"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_901F58A0ED8E44C297D99947E45BD009"
+            "Target" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
             "Folder" = "8:_A6D1F1F898534A7ABA3DB72B850C6BF7"
             "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_901F58A0ED8E44C297D99947E45BD009"
+            "Icon" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EB4572B777504603A117B8D6FB75F064"
+            {
+            "Name" = "8:Application Blocker"
+            "Arguments" = "8:"
+            "Description" = "8:Application Blocker"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+            "Folder" = "8:_1409B986C4574F838E18D3F98518C2CB"
+            "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Icon" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
             "Feature" = "8:"
             }
         }
@@ -626,7 +678,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This setup program will install Application Blocker 2.2.0 to your computer."
+                            "Value" = "8:This setup program will install Application Blocker 2.3.0 to your computer."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -762,7 +814,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This setup program will install Application Blocker 2.2.0 to your computer."
+                            "Value" = "8:This setup program will install Application Blocker 2.3.0 to your computer."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
