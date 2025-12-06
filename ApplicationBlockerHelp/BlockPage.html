@@ -9,11 +9,19 @@
 <body>
 <div id="content_container">
   <p class="texttitle1">Blocking Applications</p>
-  <p><img src="images/block.png" width="686" height="483" alt="Block Application" /></p>
-<p>To block an application, click "Block Application" button. This will open a file browser. You can select the exe file you want to block. After that, selected exe file will be added to list and access to it will be blocked.<p>
+  <p><img src="images/blockmenu.png" width="505" height="308" alt="Block Application Menu" /></p>
+<p><strong>Standart Block:</strong> Block selected application completely until it gets unblocked.<p>
+<p><strong>Password Lock:</strong> Ask for Application Blocker password when the blocked app gets started.<p>
+<p>When a program gets blocked using password lock, the Application Blocker will generate startup entries and will continue working at background when closed. This way, Application Blocker can continue blocking applications. Startup entries gets removed when the last password locked application gets unblocked.<p>
+<p><img src="images/block.png" width="678" height="489" alt="Block Application" /></p>
+<p>To block an application, click "Block Application" button. Then, select "Standart Block" or "Password Lock". This will open a file browser. You can select the application (exe file) to block. After that, selected application will be added to list and access to it will be blocked.<p>
   <p class="texttitle2">Trying to run a blocked program</p>
-<p>When you try to run a program that is blocked by Application Blocker, you will see this message:<p>
-  <p><img src="images/restrict.png" width="596" height="174" alt="Blocked" /></p>
+<p>When you try to run a program that is blocked by standart block, you will see this message:<p>
+  <p><img src="images/restrict.png" width="596" height="174" alt="Blocked by Standart Block" /></p>
+<p>When you try to run a program that is blocked by password locking, you will see this message:<p>
+<p><img src="images/blockalert.png" width="391" height="153" alt="Blocked by Password Lock" /></p>
+<p><img src="images/blockpassword.png" width="343" height="175" alt="Blocked by Password Lock" /></p>
+<p>You need to enter your Application Blocker password to continue to the blocked program. Clicking "Cancel" will close the blocked program.<p>
 </div>
 </body>
 </html>

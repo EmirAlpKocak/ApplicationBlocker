@@ -51,6 +51,10 @@
 			<param name="Name" value="Updates">
 			<param name="Local" value="UpdatePage.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tray Icon">
+			<param name="Local" value="TrayIconPage.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Contact and Support">
