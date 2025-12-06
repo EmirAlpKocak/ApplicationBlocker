@@ -31,6 +31,8 @@ UI of the version 1.7.0 and later is based on MetroFramework. 2.2.0 and later us
 
 Setup File: 1.0 to 1.4: InstallSimple and Windows Built-in IExpress - *.exe file format | 1.5.0 and later: Microsoft Visual Studio Installer Extension (VSIX) - *.msi file format
 
+If you decided to uninstall Application Blocker, please unblock every application from the list. If you don't do that, programs will stay blocked.
+
 Known Issues:
 
-The tool crashes or fails if you try to block a program that creates multiple instances (for example: Google Chrome) using password lock. Until this issue is fixed, please use standart block for applications like that.
+The tool crashes or fails if you try to block a program that creates multiple instances (for example: Google Chrome) using password lock. Until this issue is fixed, please use standard block for applications like that.
