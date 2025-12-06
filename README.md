@@ -13,7 +13,7 @@ The lock is reliable and very hard to break for normal users.
 
 The program also supports password protected blocking, which allows you to enter blocked apps if you enter hte correct password.
 
-Application Blocker does not work at background when using standart block. In password lock mode, the tool uses minimal resources and does not affect system performance.
+Application Blocker does not work at background when using standard block. In password lock mode, the tool uses minimal resources and does not affect system performance.
 
 This program can be used to control your chield or prevent access to programs on special areas like school computers.
 
