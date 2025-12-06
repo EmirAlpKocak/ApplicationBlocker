@@ -11,7 +11,9 @@ It is very effective and easy to use. You can select the program file and add it
 
 The lock is reliable and very hard to break for normal users.
 
-Application Blocker does not work at background so it does not affect your computer's performance.
+The program also supports password protected blocking, which allows you to enter blocked apps if you enter hte correct password.
+
+Application Blocker does not work at background when using standart block. In password lock mode, the tool uses minimal resources and does not affect system performance.
 
 This program can be used to control your chield or prevent access to programs on special areas like school computers.
 
@@ -21,10 +23,14 @@ The tool can check for updates automatically and alert you when a new version is
 
 Requires .NET Framework 4.5 and Windows Vista or later.
 
-!!! Virus or malware warning? False positive.
+!!! Virus or malware warning? False positive. Windows SmartScreen may cause false positives.
 
-Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5.0 to 2.1.0: C# | 2.2.0 and later: C# and C++
+Programming Language: Version 1.0 and 1.1: C# 1.2, 1.3, 1.4: VB.NET, 1.5.0 to 2.1.0: C# | Version 2.2.0 and later: C# and C++
 
 UI of the version 1.7.0 and later is based on MetroFramework. 2.2.0 and later uses a C++ DLL for Task Dialogs, a replacement to simple messageboxes.
 
 Setup File: 1.0 to 1.4: InstallSimple and Windows Built-in IExpress - *.exe file format | 1.5.0 and later: Microsoft Visual Studio Installer Extension (VSIX) - *.msi file format
+
+Known Issues:
+
+The tool crashes or fails if you try to block a program that creates multiple instances (for example: Google Chrome) using password lock. Until this issue is fixed, please use standart block for applications like that.
