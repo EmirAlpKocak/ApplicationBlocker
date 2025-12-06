@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6D7186565AEA40EEB0AB8993B8873380"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -34,7 +28,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B0A018671557217EB0BB3B7D2E757CC8"
-        "OwnerKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+        "OwnerKey" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,6 +40,12 @@
         "Entry"
         {
         "MsmKey" = "8:_BBD440F4FF9C4EC6973F3CB0811F7843"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -64,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+        "OwnerKey" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -162,37 +162,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_196C7BDAADE04E83BC2EC67BD14FA901"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_196C7BDAADE04E83BC2EC67BD14FA901"
-                    {
-                    "Name" = "8:Application Blocker.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D7186565AEA40EEB0AB8993B8873380"
             {
             "SourcePath" = "8:..\\bin\\Release\\TaskDlg32.dll"
@@ -304,6 +273,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D4E62032200F4DB4B78F081BD93A5C75"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D4E62032200F4DB4B78F081BD93A5C75"
+                    {
+                    "Name" = "8:Application Blocker.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E056F0EEF3E34F2ABAE966A6B2780447"
             {
             "SourcePath" = "8:..\\bin\\Release\\Help.chm"
@@ -398,7 +398,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Application Blocker"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+        "ARPPRODUCTICON" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -501,7 +501,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4E234C8E397F42F68B9EB5258278691C"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8D6DDE7A993144B6A2646F9B72619A7B"
             {
             "Name" = "8:Application Blocker"
             "Arguments" = "8:"
@@ -509,24 +509,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
-            "Folder" = "8:_A6D1F1F898534A7ABA3DB72B850C6BF7"
-            "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EB4572B777504603A117B8D6FB75F064"
-            {
-            "Name" = "8:Application Blocker"
-            "Arguments" = "8:"
-            "Description" = "8:Application Blocker"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:32512"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+            "Target" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
             "Folder" = "8:_1409B986C4574F838E18D3F98518C2CB"
             "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_196C7BDAADE04E83BC2EC67BD14FA901"
+            "Icon" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F516059FDBDA4188AD32C97F994E76E5"
+            {
+            "Name" = "8:Application Blocker"
+            "Arguments" = "8:"
+            "Description" = "8:Application Blocker"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D4E62032200F4DB4B78F081BD93A5C75"
+            "Folder" = "8:_A6D1F1F898534A7ABA3DB72B850C6BF7"
+            "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
