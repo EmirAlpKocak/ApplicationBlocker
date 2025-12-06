@@ -144,7 +144,7 @@ namespace Application_Blocker
             this.contactSendFeedbackToolStripMenuItem,
             this.aboutApplicationBlockerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 158);
             // 
             // unblockAnotherApplicationToolStripMenuItem
             // 
@@ -185,14 +185,14 @@ namespace Application_Blocker
             // blueDefaultToolStripMenuItem
             // 
             this.blueDefaultToolStripMenuItem.Name = "blueDefaultToolStripMenuItem";
-            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blueDefaultToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.blueDefaultToolStripMenuItem.Text = "Blue (Default)";
             this.blueDefaultToolStripMenuItem.Click += new System.EventHandler(this.blueDefaultToolStripMenuItem_Click);
             // 
             // blackToolStripMenuItem
             // 
             this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
-            this.blackToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.blackToolStripMenuItem.Text = "Black (Dark)";
             this.blackToolStripMenuItem.Visible = false;
             this.blackToolStripMenuItem.Click += new System.EventHandler(this.blackToolStripMenuItem_Click);
@@ -200,14 +200,14 @@ namespace Application_Blocker
             // silverToolStripMenuItem
             // 
             this.silverToolStripMenuItem.Name = "silverToolStripMenuItem";
-            this.silverToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silverToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.silverToolStripMenuItem.Text = "Silver";
             this.silverToolStripMenuItem.Click += new System.EventHandler(this.silverToolStripMenuItem_Click);
             // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
-            this.greenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.greenToolStripMenuItem.Text = "Green";
             this.greenToolStripMenuItem.Visible = false;
             this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenToolStripMenuItem_Click);
@@ -215,21 +215,21 @@ namespace Application_Blocker
             // limeToolStripMenuItem
             // 
             this.limeToolStripMenuItem.Name = "limeToolStripMenuItem";
-            this.limeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.limeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.limeToolStripMenuItem.Text = "Lime";
             this.limeToolStripMenuItem.Click += new System.EventHandler(this.limeToolStripMenuItem_Click);
             // 
             // tealToolStripMenuItem
             // 
             this.tealToolStripMenuItem.Name = "tealToolStripMenuItem";
-            this.tealToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tealToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.tealToolStripMenuItem.Text = "Teal";
             this.tealToolStripMenuItem.Click += new System.EventHandler(this.tealToolStripMenuItem_Click);
             // 
             // orangeToolStripMenuItem
             // 
             this.orangeToolStripMenuItem.Name = "orangeToolStripMenuItem";
-            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.orangeToolStripMenuItem.Text = "Orange";
             this.orangeToolStripMenuItem.Visible = false;
             this.orangeToolStripMenuItem.Click += new System.EventHandler(this.orangeToolStripMenuItem_Click);
@@ -237,21 +237,21 @@ namespace Application_Blocker
             // pinkToolStripMenuItem
             // 
             this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
-            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pinkToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.pinkToolStripMenuItem.Text = "Pink";
             this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkToolStripMenuItem_Click);
             // 
             // magentaToolStripMenuItem
             // 
             this.magentaToolStripMenuItem.Name = "magentaToolStripMenuItem";
-            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.magentaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.magentaToolStripMenuItem.Text = "Magenta";
             this.magentaToolStripMenuItem.Click += new System.EventHandler(this.magentaToolStripMenuItem_Click);
             // 
             // purpleToolStripMenuItem
             // 
             this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
-            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.purpleToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.purpleToolStripMenuItem.Text = "Purple";
             this.purpleToolStripMenuItem.Visible = false;
             this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
@@ -259,7 +259,7 @@ namespace Application_Blocker
             // redToolStripMenuItem
             // 
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.redToolStripMenuItem.Text = "Red";
             this.redToolStripMenuItem.Visible = false;
             this.redToolStripMenuItem.Click += new System.EventHandler(this.redToolStripMenuItem_Click);
@@ -267,7 +267,7 @@ namespace Application_Blocker
             // yellowToolStripMenuItem
             // 
             this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
-            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.yellowToolStripMenuItem.Text = "Yellow";
             this.yellowToolStripMenuItem.Visible = false;
             this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowToolStripMenuItem_Click);
@@ -275,7 +275,7 @@ namespace Application_Blocker
             // brownToolStripMenuItem
             // 
             this.brownToolStripMenuItem.Name = "brownToolStripMenuItem";
-            this.brownToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.brownToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.brownToolStripMenuItem.Text = "Brown";
             this.brownToolStripMenuItem.Visible = false;
             // 
@@ -334,20 +334,20 @@ namespace Application_Blocker
             this.standartBlockToolStripMenuItem,
             this.passwordLockToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(154, 48);
             // 
             // standartBlockToolStripMenuItem
             // 
             this.standartBlockToolStripMenuItem.Name = "standartBlockToolStripMenuItem";
-            this.standartBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.standartBlockToolStripMenuItem.Text = "Standart Block";
+            this.standartBlockToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.standartBlockToolStripMenuItem.Text = "Standard Block";
             this.standartBlockToolStripMenuItem.ToolTipText = "Block applications completely.";
             this.standartBlockToolStripMenuItem.Click += new System.EventHandler(this.standartBlockToolStripMenuItem_Click);
             // 
             // passwordLockToolStripMenuItem
             // 
             this.passwordLockToolStripMenuItem.Name = "passwordLockToolStripMenuItem";
-            this.passwordLockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.passwordLockToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.passwordLockToolStripMenuItem.Text = "Password Lock";
             this.passwordLockToolStripMenuItem.ToolTipText = "Lock applications with Application Blocker password.";
             this.passwordLockToolStripMenuItem.Click += new System.EventHandler(this.passwordLockToolStripMenuItem_Click);

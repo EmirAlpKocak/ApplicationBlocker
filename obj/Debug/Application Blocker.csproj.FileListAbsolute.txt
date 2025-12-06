@@ -41,3 +41,6 @@ C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form2.re
 C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form3.resources
 C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Form2.resources
 C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Debug\Application_Blocker.Form3.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form4.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form5.resources
+C:\Users\Emir\Desktop\Application Blocker\obj\Debug\Application_Blocker.Form6.resources

@@ -81,5 +81,16 @@ namespace Application_Blocker.Properties {
                 this["isSettingsUpgraded"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection PasswordBlockedApps {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["PasswordBlockedApps"]));
+            }
+            set {
+                this["PasswordBlockedApps"] = value;
+            }
+        }
     }
 }
