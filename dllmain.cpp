@@ -19,7 +19,7 @@ extern "C" __declspec(dllexport) int ShowUpdateMessage(HWND window, const wchar_
 
 extern "C" __declspec(dllexport) void ShowAboutBox(HWND window)
 {
-	TaskDialog(window, nullptr, L"Application Blocker", L"About Application Blocker", L"Application Blocker v2.3.0\nCoded By: Emir Alp Koçak using C# and C++", TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
+	TaskDialog(window, nullptr, L"Application Blocker", L"About Application Blocker", L"Application Blocker v2.4.0\nCoded By: Emir Alp Koçak using C# and C++", TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
 }
 
 extern "C" __declspec(dllexport) void ShowUpdateError(HWND window, const wchar_t* msg)
