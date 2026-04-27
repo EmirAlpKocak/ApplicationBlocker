@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Specialized;
 using System.Windows.Forms;
 using System.Security.AccessControl;
@@ -46,26 +46,6 @@ namespace Application_Blocker
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            InstallProtectProcess();
-            try
-            {
-                Process[] processes = Process.GetProcessesByName("Protect-Process");
-                if (processes.Length == 0)
-                {
-                    Process.Start(Application.StartupPath + "\\Protect-Process.exe");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error has occured: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            /*using (RegistryKey regKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN", true))
-            {
-                if (regKey != null)
-                {
-                    regKey.SetValue("Application Blocker Protect-Process", Application.StartupPath + "\\Protect-Process.exe", RegistryValueKind.String);
-                }
-            }*/
             if (_startup)
             {
                 this.Resizable = false;
@@ -91,7 +71,7 @@ namespace Application_Blocker
                         {
                             string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                             version = downloaded.Trim();
-                            if (version != "2.4.0")
+                            if (version != "2.3.1")
                             {
                                 int result;
                                 if (Environment.Is64BitOperatingSystem)
@@ -169,7 +149,7 @@ namespace Application_Blocker
                         {
                             string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                             version = downloaded.Trim();
-                            if (version != "2.4.0")
+                            if (version != "2.3.1")
                             {
                                 int result;
                                 if (Environment.Is64BitOperatingSystem)
@@ -311,7 +291,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.4.0")
+                    if (version != "2.3.1")
                     {
                         int result;
                         if (Environment.Is64BitOperatingSystem)
@@ -560,47 +540,47 @@ namespace Application_Blocker
                 blueDefaultToolStripMenuItem.CheckOnClick = true;
                 blueDefaultToolStripMenuItem.Checked = true;
                 unblockAnotherApplicationToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
-                changePasswordToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                changePasswordToolStripMenuItem.ForeColor = Color.White;
-                updateToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                updateToolStripMenuItem.ForeColor = Color.White;
-                checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                checkForUpdatesAutomaticallyToolStripMenuItem.ForeColor = Color.White;
-                checkForUpdatesToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                checkForUpdatesToolStripMenuItem.ForeColor = Color.White;
-                aboutApplicationBlockerToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                aboutApplicationBlockerToolStripMenuItem.ForeColor = Color.White;
-                helpToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                helpToolStripMenuItem.ForeColor = Color.White;
-                toolStripMenuItem1.BackColor = Color.FromArgb(0, 120, 215);
-                toolStripMenuItem1.ForeColor = Color.White;
-                blueDefaultToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                blueDefaultToolStripMenuItem.ForeColor = Color.White;
-                blackToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                blackToolStripMenuItem.ForeColor = Color.White;
-                silverToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                silverToolStripMenuItem.ForeColor = Color.White;
-                greenToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                greenToolStripMenuItem.ForeColor = Color.White;
-                limeToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                limeToolStripMenuItem.ForeColor = Color.White;
-                tealToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                tealToolStripMenuItem.ForeColor = Color.White;
-                orangeToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                orangeToolStripMenuItem.ForeColor = Color.White;
-                brownToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                brownToolStripMenuItem.ForeColor = Color.White;
-                pinkToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                pinkToolStripMenuItem.ForeColor = Color.White;
-                magentaToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                magentaToolStripMenuItem.ForeColor = Color.White;
-                purpleToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                purpleToolStripMenuItem.ForeColor = Color.White;
-                redToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                redToolStripMenuItem.ForeColor = Color.White;
-                yellowToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
-                yellowToolStripMenuItem.ForeColor = Color.White;
+unblockAnotherApplicationToolStripMenuItem.ForeColor = Color.White;
+changePasswordToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+changePasswordToolStripMenuItem.ForeColor = Color.White;
+updateToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+updateToolStripMenuItem.ForeColor = Color.White;
+checkForUpdatesAutomaticallyToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+checkForUpdatesAutomaticallyToolStripMenuItem.ForeColor = Color.White;
+checkForUpdatesToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+checkForUpdatesToolStripMenuItem.ForeColor = Color.White;
+aboutApplicationBlockerToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+aboutApplicationBlockerToolStripMenuItem.ForeColor = Color.White;
+helpToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+helpToolStripMenuItem.ForeColor = Color.White;
+toolStripMenuItem1.BackColor = Color.FromArgb(0, 120, 215);
+toolStripMenuItem1.ForeColor = Color.White;
+blueDefaultToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+blueDefaultToolStripMenuItem.ForeColor = Color.White;
+blackToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+blackToolStripMenuItem.ForeColor = Color.White;
+silverToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+silverToolStripMenuItem.ForeColor = Color.White;
+greenToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+greenToolStripMenuItem.ForeColor = Color.White;
+limeToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+limeToolStripMenuItem.ForeColor = Color.White;
+tealToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+tealToolStripMenuItem.ForeColor = Color.White;
+orangeToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+orangeToolStripMenuItem.ForeColor = Color.White;
+brownToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+brownToolStripMenuItem.ForeColor = Color.White;
+pinkToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+pinkToolStripMenuItem.ForeColor = Color.White;
+magentaToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+magentaToolStripMenuItem.ForeColor = Color.White;
+purpleToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+purpleToolStripMenuItem.ForeColor = Color.White;
+redToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+redToolStripMenuItem.ForeColor = Color.White;
+yellowToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+yellowToolStripMenuItem.ForeColor = Color.White;
                 standartBlockToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
                 standartBlockToolStripMenuItem.ForeColor = Color.White;
                 passwordLockToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
@@ -1489,23 +1469,23 @@ namespace Application_Blocker
                     {
                         return;
                     }
-                    foreach (string blockedApp in Properties.Settings.Default.PasswordBlockedApps)
-                    {
-                        string blocked = Path.GetFileNameWithoutExtension(blockedApp);
-                        if (string.Equals(exeName, blocked, StringComparison.OrdinalIgnoreCase))
+                        foreach (string blockedApp in Properties.Settings.Default.PasswordBlockedApps)
                         {
-                            handledPids.Add(pid);
-                            var process = Process.GetProcessById(pid);
-                            SuspendProcess(pid);
-                            notifyIcon1.BalloonTipTitle = "Application Blocker";
-                            notifyIcon1.BalloonTipText = exeName + " is blocked. Please enter your password to continue.";
-                            notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
-                            notifyIcon1.ShowBalloonTip(3000);
-                            Form4 frm4 = new Form4(pid, this);
-                            frm4.ShowDialog();
-                            break;
+                            string blocked = Path.GetFileNameWithoutExtension(blockedApp);
+                            if (string.Equals(exeName, blocked, StringComparison.OrdinalIgnoreCase))
+                            {
+                                handledPids.Add(pid);
+                                var process = Process.GetProcessById(pid);
+                                SuspendProcess(pid);
+                                notifyIcon1.BalloonTipTitle = "Application Blocker";
+                                notifyIcon1.BalloonTipText = exeName + " is blocked. Please enter your password to continue.";
+                                notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
+                                notifyIcon1.ShowBalloonTip(3000);
+                                Form4 frm4 = new Form4(pid, this);
+                                frm4.ShowDialog();
+                                break;
+                            }
                         }
-                    }
                 }
             }
             catch (Exception ex)
@@ -1593,20 +1573,8 @@ namespace Application_Blocker
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool form5Open = false;
-            FormCollection collection = Application.OpenForms;
-            foreach (Form frm in collection)
-            {
-                if (frm.Name == "Form5")
-                {
-                    form5Open = true;
-                }
-            }
-            if (!form5Open)
-            {
-                Form5 frm5 = new Form5();
-                frm5.ShowDialog();
-            }
+            Form5 frm5 = new Form5();
+            frm5.ShowDialog();
         }
 
         private void standartBlockToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1680,7 +1648,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.4.0")
+                    if (version != "2.3.1")
                     {
                         int result;
                         if (Environment.Is64BitOperatingSystem)
@@ -1770,29 +1738,6 @@ namespace Application_Blocker
             info.WindowStyle = ProcessWindowStyle.Hidden;
             info.Verb = "runas";
             Process.Start(info);
-        }
-        private void InstallProtectProcess()
-        {
-            if (Environment.Is64BitOperatingSystem)
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "/create /xml \"" + Application.StartupPath + "\\PProcess64.xml\"" + " /tn \"Application Blocker Protect-Process\"";
-                info.FileName = "schtasks.exe";
-                info.CreateNoWindow = true;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.Verb = "runas";
-                Process.Start(info);
-            }
-            else
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "/create /xml \"" + Application.StartupPath + "\\PProcess32.xml\"" + " /tn \"Application Blocker Protect-Process\"";
-                info.FileName = "schtasks.exe";
-                info.CreateNoWindow = true;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.Verb = "runas";
-                Process.Start(info);
-            }
         }
 
         private void contactSendFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
