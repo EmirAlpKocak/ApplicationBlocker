@@ -57,3 +57,8 @@ C:\Users\Emir\Desktop\New folder\Application Blocker\obj\Release\Application Blo
 C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form4.resources
 C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form5.resources
 C:\Users\Emir\Desktop\Application Blocker\obj\Release\Application_Blocker.Form6.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form2.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form3.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form4.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form5.resources
+C:\Users\Emir\Desktop\Everything\Projects\C#\Application Blocker\obj\Release\Application_Blocker.Form6.resources
