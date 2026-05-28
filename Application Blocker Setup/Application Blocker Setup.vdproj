@@ -15,62 +15,62 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1108550A9E3240D4A4E5B25BDA5DCEFA"
+        "MsmKey" = "8:_127430F87A7B4C8C99A75ED3D03B360D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_64651703CBB5420089EC5417BD6E2A44"
+        "MsmKey" = "8:_1B266DB8A0054B849F3A94D197D4CB31"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8D4D2F0C072246F3BBB4F488405341DA"
+        "MsmKey" = "8:_74BD498806624A6EAF22CE5638F47287"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A3CB7E935FC3421DBF2ED85D1E121013"
+        "MsmKey" = "8:_A6CDE5F03EC84D69AC3AC1668FAD967C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B0A018671557217EB0BB3B7D2E757CC8"
-        "OwnerKey" = "8:_64651703CBB5420089EC5417BD6E2A44"
+        "OwnerKey" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B6CBA7948D7648E2BB4C9B4998A746B3"
+        "MsmKey" = "8:_C08B370DADBB4BEB9C97042137729BBA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B8848FB2219A46F6B819F46F16493DDD"
+        "MsmKey" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C4A980A5E42D4B2284006FFB6A8BE844"
+        "MsmKey" = "8:_D40073B64D094F9D82B8CAC38B4C881F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C5988D4D018F49EAAFB4E184CDF2F9CD"
+        "MsmKey" = "8:_F145315BA46B46A6B5073F51BE1A8978"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E056F0EEF3E34F2ABAE966A6B2780447"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,13 +82,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A3CB7E935FC3421DBF2ED85D1E121013"
+        "OwnerKey" = "8:_C08B370DADBB4BEB9C97042137729BBA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_64651703CBB5420089EC5417BD6E2A44"
+        "OwnerKey" = "8:_127430F87A7B4C8C99A75ED3D03B360D"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -163,6 +163,34 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_66765D071B7644BDAC4D82A84158A5A8"
+            {
+            "Name" = "8:InstallTool.exe"
+            "Condition" = "8:"
+            "Object" = "8:_127430F87A7B4C8C99A75ED3D03B360D"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:ins"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_E9520349_71B3_41DA_A3F3_C4100BAD1650"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_C07FBF79727842F3B03EE9BFA4566322"
+            {
+            "Name" = "8:InstallTool.exe"
+            "Condition" = "8:"
+            "Object" = "8:_127430F87A7B4C8C99A75ED3D03B360D"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:del"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_8B4A809A_B18C_4014_A10A_2D4037E1C20B"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -178,7 +206,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:https://www.microsoft.com/en-us/download/details.aspx?id=30653"
                 }
@@ -186,40 +214,20 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1108550A9E3240D4A4E5B25BDA5DCEFA"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\TaskDlg32.dll"
-            "TargetName" = "8:TaskDlg32.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_64651703CBB5420089EC5417BD6E2A44"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_127430F87A7B4C8C99A75ED3D03B360D"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:InstallTool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_64651703CBB5420089EC5417BD6E2A44"
+                    "_127430F87A7B4C8C99A75ED3D03B360D"
                     {
-                    "Name" = "8:Application Blocker.exe"
-                    "Attributes" = "3:512"
+                    "Name" = "8:InstallTool.exe"
+                    "Attributes" = "3:514"
                     }
                 }
-            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
+            "SourcePath" = "8:..\\..\\InstallTool\\bin\\Release\\InstallTool.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
@@ -227,7 +235,7 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
+            "Hidden" = "11:TRUE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -237,7 +245,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D4D2F0C072246F3BBB4F488405341DA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B266DB8A0054B849F3A94D197D4CB31"
             {
             "SourcePath" = "8:..\\bin\\Release\\Task64.xml"
             "TargetName" = "8:Task64.xml"
@@ -257,21 +265,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A3CB7E935FC3421DBF2ED85D1E121013"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74BD498806624A6EAF22CE5638F47287"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Protect-Process, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A3CB7E935FC3421DBF2ED85D1E121013"
-                    {
-                    "Name" = "8:Protect-Process.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\bin\\Release\\Protect-Process.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\bin\\Release\\Task32.xml"
+            "TargetName" = "8:Task32.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6CDE5F03EC84D69AC3AC1668FAD967C"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\Help.chm"
+            "TargetName" = "8:Help.chm"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -319,10 +336,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6CBA7948D7648E2BB4C9B4998A746B3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C08B370DADBB4BEB9C97042137729BBA"
             {
-            "SourcePath" = "8:..\\bin\\Release\\Task32.xml"
-            "TargetName" = "8:Task32.xml"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Protect-Process, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C08B370DADBB4BEB9C97042137729BBA"
+                    {
+                    "Name" = "8:Protect-Process.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\bin\\Release\\Protect-Process.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -339,10 +367,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B8848FB2219A46F6B819F46F16493DDD"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D066C12AE52B48D78E77AE0E70C6D984"
             {
-            "SourcePath" = "8:..\\bin\\Release\\PProcess32.xml"
-            "TargetName" = "8:PProcess32.xml"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Application Blocker, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D066C12AE52B48D78E77AE0E70C6D984"
+                    {
+                    "Name" = "8:Application Blocker.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\bin\\Release\\Application Blocker.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -359,50 +398,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4A980A5E42D4B2284006FFB6A8BE844"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D40073B64D094F9D82B8CAC38B4C881F"
+            {
+            "SourcePath" = "8:..\\bin\\Release\\TaskDlg32.dll"
+            "TargetName" = "8:TaskDlg32.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F145315BA46B46A6B5073F51BE1A8978"
             {
             "SourcePath" = "8:..\\bin\\Release\\TaskDlg64.dll"
             "TargetName" = "8:TaskDlg64.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C5988D4D018F49EAAFB4E184CDF2F9CD"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\PProcess64.xml"
-            "TargetName" = "8:PProcess64.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E056F0EEF3E34F2ABAE966A6B2780447"
-            {
-            "SourcePath" = "8:..\\bin\\Release\\Help.chm"
-            "TargetName" = "8:Help.chm"
             "Tag" = "8:"
             "Folder" = "8:_55CF7225317246EB9A91C5002710B8EF"
             "Condition" = "8:"
@@ -475,15 +494,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Application Blocker"
-        "ProductCode" = "8:{E32805D4-E9A4-4947-8660-D60D22DA1374}"
-        "PackageCode" = "8:{5320B793-B55D-496A-AA3C-5186427699BA}"
+        "ProductCode" = "8:{156CED9C-61AA-49AE-8973-A87E84DF39D4}"
+        "PackageCode" = "8:{D0DEA685-CBC9-41FB-8ACE-1030D7846B04}"
         "UpgradeCode" = "8:{D8584CD0-8AB6-405A-8A3B-3A6279FD20EC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.4.0"
+        "ProductVersion" = "8:2.5.0"
         "Manufacturer" = "8:Emir Alp Koçak"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -493,7 +512,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Application Blocker"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_64651703CBB5420089EC5417BD6E2A44"
+        "ARPPRODUCTICON" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -596,7 +615,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_682D9CD00A594CA4847189EB9359D705"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4D71BD4EA46D4AFE89A779918E3EBC31"
             {
             "Name" = "8:Application Blocker"
             "Arguments" = "8:"
@@ -604,13 +623,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_64651703CBB5420089EC5417BD6E2A44"
+            "Target" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
             "Folder" = "8:_1409B986C4574F838E18D3F98518C2CB"
             "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_64651703CBB5420089EC5417BD6E2A44"
+            "Icon" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9D757A4BE9364B84ACED332C3A7EB702"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_552F06F8461C405D8FA097B42EECB61E"
             {
             "Name" = "8:Application Blocker"
             "Arguments" = "8:"
@@ -618,10 +637,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_64651703CBB5420089EC5417BD6E2A44"
+            "Target" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
             "Folder" = "8:_A6D1F1F898534A7ABA3DB72B850C6BF7"
             "WorkingFolder" = "8:_55CF7225317246EB9A91C5002710B8EF"
-            "Icon" = "8:_64651703CBB5420089EC5417BD6E2A44"
+            "Icon" = "8:_D066C12AE52B48D78E77AE0E70C6D984"
             "Feature" = "8:"
             }
         }
@@ -711,7 +730,7 @@
                 {
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_53C71DB2E79448C29FF54AC0DAEC7A60"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:200"
                     "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -773,43 +792,8 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This setup program will install Application Blocker 2.4.0 to your computer."
+                            "Value" = "8:This setup program will install Application Blocker 2.5.0 to your computer."
                             "DefaultValue" = "8:#1203"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_CC5CBBB6DAA646AC9C9C32A9C9CF218B"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:0"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                            "InstallAllUsersVisible"
-                            {
-                            "Name" = "8:InstallAllUsersVisible"
-                            "DisplayName" = "8:#1059"
-                            "Description" = "8:#1159"
-                            "Type" = "3:5"
-                            "ContextData" = "8:1;True=1;False=0"
-                            "Attributes" = "3:0"
-                            "Setting" = "3:0"
-                            "Value" = "3:1"
-                            "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -823,28 +807,6 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_5EE7BEA711C54B08B4E66F5CD61BBD7B"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:0"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_A387BC95DC1F44BD9F0EB64768836115"
                     {
                     "Sequence" = "3:300"
@@ -909,7 +871,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This setup program will install Application Blocker 2.4.0 to your computer."
+                            "Value" = "8:This setup program will install Application Blocker 2.5.0 to your computer."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }
