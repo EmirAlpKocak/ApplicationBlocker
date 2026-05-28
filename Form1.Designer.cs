@@ -58,6 +58,7 @@ namespace Application_Blocker
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesAutomaticallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silentProcessLockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactSendFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutApplicationBlockerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,10 @@ namespace Application_Blocker
             this.checkForUpdatesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importProcessLockItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportProcessLockItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
@@ -140,11 +145,14 @@ namespace Application_Blocker
             this.changePasswordToolStripMenuItem,
             this.toolStripMenuItem1,
             this.updateToolStripMenuItem,
+            this.silentProcessLockToolStripMenuItem,
+            this.importProcessLockItemsToolStripMenuItem,
+            this.exportProcessLockItemsToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.contactSendFeedbackToolStripMenuItem,
             this.aboutApplicationBlockerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(229, 224);
             // 
             // unblockAnotherApplicationToolStripMenuItem
             // 
@@ -305,6 +313,15 @@ namespace Application_Blocker
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates";
             this.checkForUpdatesToolStripMenuItem.ToolTipText = "Check for latest updates.";
             // 
+            // silentProcessLockToolStripMenuItem
+            // 
+            this.silentProcessLockToolStripMenuItem.CheckOnClick = true;
+            this.silentProcessLockToolStripMenuItem.Name = "silentProcessLockToolStripMenuItem";
+            this.silentProcessLockToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.silentProcessLockToolStripMenuItem.Text = "Silent Process Lock";
+            this.silentProcessLockToolStripMenuItem.ToolTipText = "Do not show message when an application is blocked by Process Lock mode.";
+            this.silentProcessLockToolStripMenuItem.Click += new System.EventHandler(this.silentProcessLockToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -348,8 +365,8 @@ namespace Application_Blocker
             // 
             this.passwordLockToolStripMenuItem.Name = "passwordLockToolStripMenuItem";
             this.passwordLockToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.passwordLockToolStripMenuItem.Text = "Password Lock";
-            this.passwordLockToolStripMenuItem.ToolTipText = "Lock applications with Application Blocker password.";
+            this.passwordLockToolStripMenuItem.Text = "Process Lock";
+            this.passwordLockToolStripMenuItem.ToolTipText = "Lock applications when they are starting.";
             this.passwordLockToolStripMenuItem.Click += new System.EventHandler(this.passwordLockToolStripMenuItem_Click);
             // 
             // notifyIcon1
@@ -400,6 +417,32 @@ namespace Application_Blocker
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.ToolTipText = "Exit Application Blocker.";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // importProcessLockItemsToolStripMenuItem
+            // 
+            this.importProcessLockItemsToolStripMenuItem.Name = "importProcessLockItemsToolStripMenuItem";
+            this.importProcessLockItemsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.importProcessLockItemsToolStripMenuItem.Text = "Import Process Lock Items";
+            this.importProcessLockItemsToolStripMenuItem.ToolTipText = "Import Process Lock items from a file.";
+            this.importProcessLockItemsToolStripMenuItem.Click += new System.EventHandler(this.importProcessLockItemsToolStripMenuItem_Click);
+            // 
+            // exportProcessLockItemsToolStripMenuItem
+            // 
+            this.exportProcessLockItemsToolStripMenuItem.Name = "exportProcessLockItemsToolStripMenuItem";
+            this.exportProcessLockItemsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.exportProcessLockItemsToolStripMenuItem.Text = "Export Process Lock Items";
+            this.exportProcessLockItemsToolStripMenuItem.ToolTipText = "Export Process Lock items to a file.";
+            this.exportProcessLockItemsToolStripMenuItem.Click += new System.EventHandler(this.exportProcessLockItemsToolStripMenuItem_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.saveFileDialog1.Title = "Export Process Lock Items";
+            // 
+            // openFileDialog3
+            // 
+            this.openFileDialog3.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.openFileDialog3.Title = "Import Process Lock Items";
             // 
             // Form1
             // 
@@ -463,6 +506,11 @@ namespace Application_Blocker
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactSendFeedbackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem silentProcessLockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importProcessLockItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportProcessLockItemsToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog3;
     }
 }
 

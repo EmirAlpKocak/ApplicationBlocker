@@ -6,26 +6,30 @@ using System.IO;
 using Microsoft.Win32;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Management;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Application_Blocker
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         public Form2 frm2 = new Form2();
-        private ManagementEventWatcher startWatch;
-        public HashSet<int> handledPids = new HashSet<int>();
         private bool _startup = false;
-        private bool blockFirst = true;
         public bool allowRestart = false;
+        private bool isBlockerRunning = false;
+        public bool form2or6ShownAtLeastOnce = false;
         public Form1(bool startup)
         {
             InitializeComponent();
-            StartProcessMonitor();
             LoadColorSettings();
+            ProcessStartInfo info2 = new ProcessStartInfo();
+            info2.FileName = "schtasks.exe";
+            info2.Arguments = "/DELETE /tn \"Application Blocker Protect-Process\" /f";
+            info2.CreateNoWindow = true;
+            info2.WindowStyle = ProcessWindowStyle.Hidden;
+            Process.Start(info2);
             _startup = startup;
             /*this.Style = MetroFramework.MetroColorStyle.Silver;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;*/
@@ -35,43 +39,102 @@ namespace Application_Blocker
             aboutApplicationBlockerToolStripMenuItem.Click += aboutApplicationBlockerToolStripMenuItem_Click;
             this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
-        protected override void SetVisibleCore(bool value)
+        private async Task StartBlocker()
         {
-            if (_startup && blockFirst)
+            isBlockerRunning = true;
+            while (true)
             {
-                value = false;
-                blockFirst = false;
+                HashSet<string> blockListExtracted = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                foreach (string item in Properties.Settings.Default.PasswordBlockedApps)
+                {
+                    if (item != null)
+                    {
+                        blockListExtracted.Add(item);
+                    }
+                }
+                Process[] running = Process.GetProcesses();
+                foreach (Process process in running)
+                {
+                    try
+                    {
+                        string fullProcessName = process.ProcessName + ".exe";
+                        if (blockListExtracted.Contains(fullProcessName))
+                        {
+                            if (Properties.Settings.Default.SilentLock == false)
+                            {
+                                this.BeginInvoke((Action)(() =>
+                                {
+                                    int checkBoxResult;
+                                    if (Environment.Is64BitOperatingSystem)
+                                    {
+                                        checkBoxResult = Dialog64.ShowBlockedMessage(this.Handle, $"Application {fullProcessName} has been blocked by Application Blocker. To allow access, launch Application Blocker and remove {fullProcessName} from the blocked applications list. You can add it later after use.");
+                                        if (checkBoxResult == 1)
+                                        {
+                                            Properties.Settings.Default.SilentLock = true;
+                                            Properties.Settings.Default.Save();
+                                            silentProcessLockToolStripMenuItem.Checked = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        checkBoxResult = Dialog32.ShowBlockedMessage(this.Handle, $"Application {fullProcessName} has been blocked by Application Blocker. To allow access, launch Application Blocker and remove {fullProcessName} from the blocked applications list. You can add it later after use.");
+                                        if (checkBoxResult == 1)
+                                        {
+                                            Properties.Settings.Default.SilentLock = true;
+                                            Properties.Settings.Default.Save();
+                                            silentProcessLockToolStripMenuItem.Checked = true;
+                                        }
+                                    }
+                                    //MessageBox.Show($"Application {fullProcessName} is blocked by Application Blocker. To allow access, launch Application Blocker and remove {fullProcessName} from blocked applications list. You can add it later after use.", "Application Blocker", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }));
+                            }
+                            process.Kill();
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                    finally
+                    {
+                        process.Dispose();
+                    }
+                }
+                Thread.Sleep(100);
             }
-            base.SetVisibleCore(value);
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            InstallProtectProcess();
+            if (Properties.Settings.Default.PasswordBlockedApps != null)
+            {
+                Task.Run(StartBlocker);
+                isBlockerRunning = true;
+            }
             try
             {
                 Process[] processes = Process.GetProcessesByName("Protect-Process");
                 if (processes.Length == 0)
                 {
-                    Process.Start(Application.StartupPath + "\\Protect-Process.exe");
+                    ProcessStartInfo info = new ProcessStartInfo();
+                    info.FileName = "net.exe";
+                    info.Arguments = "start Protect-Process";
+                    info.CreateNoWindow = true;
+                    info.WindowStyle = ProcessWindowStyle.Hidden;
+                    Process.Start(info);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error has occured: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to launch Protect-Process: " + ex.Message + " Reinstalling Application Blocker may fix this problem.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            /*using (RegistryKey regKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\RUN", true))
-            {
-                if (regKey != null)
-                {
-                    regKey.SetValue("Application Blocker Protect-Process", Application.StartupPath + "\\Protect-Process.exe", RegistryValueKind.String);
-                }
-            }*/
             if (_startup)
             {
+                this.BeginInvoke((Action)(() => this.Hide()));
                 this.Resizable = false;
-                /*listBox1.BackColor = Color.White;
-                listBox1.ForeColor = Color.Black;*/
-                listBox1.Font = new Font("Segoe UI", 10);
+                /*listBox1.BackColor = Color.White;
+                listBox1.ForeColor = Color.Black;*/
+                listBox1.Font = new Font("Segoe UI", 10);
                 System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
                 if (!Properties.Settings.Default.isSettingsUpgraded)
                 {
@@ -81,6 +144,10 @@ namespace Application_Blocker
                 }
                 LoadSavedItems();
                 LoadPassBlockedItems();
+                if (Properties.Settings.Default.SilentLock)
+                {
+                    silentProcessLockToolStripMenuItem.Checked = true;
+                }
                 if (Properties.Settings.Default.isAutoUpdatesEnabled)
                 {
                     checkForUpdatesAutomaticallyToolStripMenuItem.Checked = true;
@@ -91,7 +158,7 @@ namespace Application_Blocker
                         {
                             string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                             version = downloaded.Trim();
-                            if (version != "2.4.0")
+                            if (version != "2.5.0")
                             {
                                 int result;
                                 if (Environment.Is64BitOperatingSystem)
@@ -109,6 +176,8 @@ namespace Application_Blocker
                                         client.DownloadFile("https://github.com/EmirAlpKocak/ApplicationBlocker/raw/refs/heads/main/Latest.msi", Path.GetTempPath() + "\\Setup.msi");
                                         System.Diagnostics.Process.Start(Path.GetTempPath() + "\\Setup.msi");
                                         allowRestart = true;
+                                        notifyIcon1.Visible = false;
+                                        notifyIcon1.Dispose();
                                         Application.Exit();
                                     }
                                     catch (Exception ex)
@@ -146,9 +215,9 @@ namespace Application_Blocker
             else
             {
                 this.Resizable = false;
-                /*listBox1.BackColor = Color.White;
-                listBox1.ForeColor = Color.Black;*/
-                listBox1.Font = new Font("Segoe UI", 10);
+                /*listBox1.BackColor = Color.White;
+                listBox1.ForeColor = Color.Black;*/
+                listBox1.Font = new Font("Segoe UI", 10);
                 System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
                 if (!Properties.Settings.Default.isSettingsUpgraded)
                 {
@@ -157,8 +226,13 @@ namespace Application_Blocker
                     Properties.Settings.Default.Save();
                 }
                 frm2.ShowDialog();
+                form2or6ShownAtLeastOnce = true;
                 LoadSavedItems();
                 LoadPassBlockedItems();
+                if (Properties.Settings.Default.SilentLock)
+                {
+                    silentProcessLockToolStripMenuItem.Checked = true;
+                }
                 if (Properties.Settings.Default.isAutoUpdatesEnabled)
                 {
                     checkForUpdatesAutomaticallyToolStripMenuItem.Checked = true;
@@ -169,7 +243,7 @@ namespace Application_Blocker
                         {
                             string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                             version = downloaded.Trim();
-                            if (version != "2.4.0")
+                            if (version != "2.5.0")
                             {
                                 int result;
                                 if (Environment.Is64BitOperatingSystem)
@@ -187,6 +261,8 @@ namespace Application_Blocker
                                         client.DownloadFile("https://github.com/EmirAlpKocak/ApplicationBlocker/raw/refs/heads/main/Latest.msi", Path.GetTempPath() + "\\Setup.msi");
                                         System.Diagnostics.Process.Start(Path.GetTempPath() + "\\Setup.msi");
                                         allowRestart = true;
+                                        notifyIcon1.Visible = false;
+                                        notifyIcon1.Dispose();
                                         Application.Exit();
                                     }
                                     catch (Exception ex)
@@ -269,6 +345,14 @@ namespace Application_Blocker
             }
             Properties.Settings.Default.PasswordBlockedApps = apps;
             Properties.Settings.Default.Save();
+            if (Properties.Settings.Default.PasswordBlockedApps != null)
+            {
+                InstallStartup();
+                if (isBlockerRunning == false)
+                {
+                    Task.Run(StartBlocker);
+                }
+            }
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,7 +395,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.4.0")
+                    if (version != "2.5.0")
                     {
                         int result;
                         if (Environment.Is64BitOperatingSystem)
@@ -329,6 +413,8 @@ namespace Application_Blocker
                                 client.DownloadFile("https://github.com/EmirAlpKocak/ApplicationBlocker/raw/refs/heads/main/Latest.msi", Path.GetTempPath() + "\\Setup.msi");
                                 System.Diagnostics.Process.Start(Path.GetTempPath() + "\\Setup.msi");
                                 allowRestart = true;
+                                notifyIcon1.Visible = false;
+                                notifyIcon1.Dispose();
                                 Application.Exit();
                             }
                             catch (Exception ex)
@@ -376,6 +462,7 @@ namespace Application_Blocker
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
+            if (!form2or6ShownAtLeastOnce) return;
             bool form2Open = false;
             FormCollection collection = Application.OpenForms;
             foreach (Form frm in collection)
@@ -394,6 +481,7 @@ namespace Application_Blocker
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            if (!form2or6ShownAtLeastOnce) return;
             bool form2Open = false;
             FormCollection collection = Application.OpenForms;
             foreach (Form frm in collection)
@@ -474,6 +562,7 @@ namespace Application_Blocker
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
+            if (!form2or6ShownAtLeastOnce) return;
             bool form2Open = false;
             FormCollection collection = Application.OpenForms;
             foreach (Form frm in collection)
@@ -615,6 +704,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.FromArgb(0, 120, 215);
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Black")
             {
@@ -737,6 +832,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.DimGray;
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.DimGray;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.DimGray;
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.DimGray;
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Green")
             {
@@ -853,6 +954,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.OliveDrab;
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.OliveDrab;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.OliveDrab;
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.OliveDrab;
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Teal")
             {
@@ -918,6 +1025,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.Teal;
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.Teal;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.Teal;
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.Teal;
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Orange")
             {
@@ -1034,6 +1147,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.HotPink;
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.HotPink;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.HotPink;
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.HotPink;
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Magenta")
             {
@@ -1099,6 +1218,12 @@ namespace Application_Blocker
                 aboutToolStripMenuItem.ForeColor = Color.White;
                 contactSendFeedbackToolStripMenuItem.BackColor = Color.DeepPink;
                 contactSendFeedbackToolStripMenuItem.ForeColor = Color.White;
+                silentProcessLockToolStripMenuItem.BackColor = Color.DeepPink;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.White;
+                importProcessLockItemsToolStripMenuItem.BackColor = Color.DeepPink;
+                importProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
+                exportProcessLockItemsToolStripMenuItem.BackColor = Color.DeepPink;
+                exportProcessLockItemsToolStripMenuItem.ForeColor = Color.White;
             }
             else if (Properties.Settings.Default.Color == "Purple")
             {
@@ -1252,6 +1377,22 @@ namespace Application_Blocker
                 metroTile1.Style = MetroFramework.MetroColorStyle.Yellow;
                 metroTile2.Style = MetroFramework.MetroColorStyle.Yellow;
                 metroTile3.Style = MetroFramework.MetroColorStyle.Yellow;
+                standartBlockToolStripMenuItem.BackColor = Color.Yellow;
+                standartBlockToolStripMenuItem.ForeColor = Color.Black;
+                passwordLockToolStripMenuItem.BackColor = Color.Yellow;
+                passwordLockToolStripMenuItem.ForeColor = Color.Black;
+                exitToolStripMenuItem.BackColor = Color.Yellow;
+                exitToolStripMenuItem.ForeColor = Color.Black;
+                showToolStripMenuItem.BackColor = Color.Yellow;
+                showToolStripMenuItem.ForeColor = Color.Black;
+                checkForUpdatesToolStripMenuItem1.BackColor = Color.Yellow;
+                checkForUpdatesToolStripMenuItem1.ForeColor = Color.Black;
+                aboutToolStripMenuItem.BackColor = Color.Yellow;
+                aboutToolStripMenuItem.ForeColor = Color.Black;
+                contactSendFeedbackToolStripMenuItem.BackColor = Color.Yellow;
+                contactSendFeedbackToolStripMenuItem.ForeColor = Color.Black;
+                silentProcessLockToolStripMenuItem.BackColor = Color.Yellow;
+                silentProcessLockToolStripMenuItem.ForeColor = Color.Black;
             }
         }
 
@@ -1268,6 +1409,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1285,6 +1428,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1301,6 +1446,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1333,6 +1480,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1349,6 +1498,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1396,6 +1547,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1412,6 +1565,8 @@ namespace Application_Blocker
                 Dialog32.ColorChanged(this.Handle);
             }
             allowRestart = true;
+            notifyIcon1.Visible = false;
+            notifyIcon1.Dispose();
             Application.Restart();
         }
 
@@ -1462,89 +1617,6 @@ namespace Application_Blocker
             }
             Application.Restart();
         }
-        private void StartProcessMonitor()
-        {
-            try
-            {
-                WqlEventQuery query = new WqlEventQuery("SELECT * FROM Win32_ProcessStartTrace");
-                startWatch = new ManagementEventWatcher(query);
-                startWatch.EventArrived += new EventArrivedEventHandler(ProcessStarted);
-                startWatch.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void ProcessStarted(object sender, EventArrivedEventArgs e)
-        {
-            try
-            {
-                if (Properties.Settings.Default.PasswordBlockedApps != null)
-                {
-                    string processName = e.NewEvent["ProcessName"].ToString();
-                    int pid = Convert.ToInt32(e.NewEvent["ProcessID"]);
-                    string exeName = Path.GetFileNameWithoutExtension(processName);
-                    if (handledPids.Contains(pid))
-                    {
-                        return;
-                    }
-                    foreach (string blockedApp in Properties.Settings.Default.PasswordBlockedApps)
-                    {
-                        string blocked = Path.GetFileNameWithoutExtension(blockedApp);
-                        if (string.Equals(exeName, blocked, StringComparison.OrdinalIgnoreCase))
-                        {
-                            handledPids.Add(pid);
-                            var process = Process.GetProcessById(pid);
-                            SuspendProcess(pid);
-                            notifyIcon1.BalloonTipTitle = "Application Blocker";
-                            notifyIcon1.BalloonTipText = exeName + " is blocked. Please enter your password to continue.";
-                            notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
-                            notifyIcon1.ShowBalloonTip(3000);
-                            Form4 frm4 = new Form4(pid, this);
-                            frm4.ShowDialog();
-                            break;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (Environment.Is64BitOperatingSystem)
-                {
-                    Dialog64.CriticalMonitorError(base.Handle, "A critical error has been occured and Application Blocker will exit. Please try removing password locked applications that has multiple instances. Please contact me if the problem continues. Error: " + ex.Message);
-                    Environment.Exit(1);
-                }
-                else
-                {
-                    Dialog32.CriticalMonitorError(base.Handle, "A critical error has been occured and Application Blocker will exit. Please try removing password locked applications that has multiple instances. Please contact me if the problem continues. Error: " + ex.Message);
-                    Environment.Exit(1);
-                }
-            }
-        }
-        public void SuspendProcess(int pid)
-        {
-            IntPtr handle = ProcessActions.OpenProcess(ProcessActions.PROCESS_SUSPEND_RESUME | ProcessActions.PROCESS_QUERY_INFORMATION, false, pid);
-            if (handle == IntPtr.Zero)
-            {
-                return;
-            }
-
-            ProcessActions.NtSuspendProcess(handle);
-            ProcessActions.CloseHandle(handle);
-        }
-        public void ResumeProcess(int pid)
-        {
-            IntPtr handle = ProcessActions.OpenProcess(ProcessActions.PROCESS_SUSPEND_RESUME | ProcessActions.PROCESS_QUERY_INFORMATION, false, pid);
-            if (handle == IntPtr.Zero)
-            {
-                return;
-            }
-
-            ProcessActions.NtResumeProcess(handle);
-            ProcessActions.CloseHandle(handle);
-        }
-
         private void passwordLockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -1568,9 +1640,10 @@ namespace Application_Blocker
             frm6.ShowDialog();
             if (frm6.passwordOk == true)
             {
-                this.Show();
+                form2or6ShownAtLeastOnce = true;
                 this.Visible = true;
                 this.WindowState = FormWindowState.Normal;
+                this.Show();
             }
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -1587,6 +1660,8 @@ namespace Application_Blocker
             else
             {
                 allowRestart = true;
+                notifyIcon1.Visible = false;
+                notifyIcon1.Dispose();
                 Application.Exit();
             }
         }
@@ -1680,7 +1755,7 @@ namespace Application_Blocker
                 {
                     string downloaded = client.DownloadString("https://raw.githubusercontent.com/EmirAlpKocak/ApplicationBlocker/refs/heads/main/version.txt");
                     version = downloaded.Trim();
-                    if (version != "2.4.0")
+                    if (version != "2.5.0")
                     {
                         int result;
                         if (Environment.Is64BitOperatingSystem)
@@ -1698,6 +1773,8 @@ namespace Application_Blocker
                                 client.DownloadFile("https://github.com/EmirAlpKocak/ApplicationBlocker/raw/refs/heads/main/Latest.msi", Path.GetTempPath() + "\\Setup.msi");
                                 System.Diagnostics.Process.Start(Path.GetTempPath() + "\\Setup.msi");
                                 allowRestart = true;
+                                notifyIcon1.Visible = false;
+                                notifyIcon1.Dispose();
                                 Application.Exit();
                             }
                             catch (Exception ex)
@@ -1771,34 +1848,51 @@ namespace Application_Blocker
             info.Verb = "runas";
             Process.Start(info);
         }
-        private void InstallProtectProcess()
-        {
-            if (Environment.Is64BitOperatingSystem)
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "/create /xml \"" + Application.StartupPath + "\\PProcess64.xml\"" + " /tn \"Application Blocker Protect-Process\"";
-                info.FileName = "schtasks.exe";
-                info.CreateNoWindow = true;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.Verb = "runas";
-                Process.Start(info);
-            }
-            else
-            {
-                ProcessStartInfo info = new ProcessStartInfo();
-                info.Arguments = "/create /xml \"" + Application.StartupPath + "\\PProcess32.xml\"" + " /tn \"Application Blocker Protect-Process\"";
-                info.FileName = "schtasks.exe";
-                info.CreateNoWindow = true;
-                info.WindowStyle = ProcessWindowStyle.Hidden;
-                info.Verb = "runas";
-                Process.Start(info);
-            }
-        }
 
         private void contactSendFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string webAddress = "https://forms.gle/FkmrRydVqSJyYry48";
             Process.Start(webAddress);
+        }
+
+        private void silentProcessLockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (silentProcessLockToolStripMenuItem.Checked)
+            {
+                Properties.Settings.Default.SilentLock = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.SilentLock = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void exportProcessLockItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string item in listBox1.Items)
+                {
+                    if (item.Contains("\\") == false)
+                    {
+                        File.AppendAllText(saveFileDialog1.FileName, item + "\n");
+                    }
+                }
+            }
+        }
+
+        private void importProcessLockItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog3.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string item in File.ReadAllLines(openFileDialog3.FileName))
+                {
+                    listBox1.Items.Add(item);
+                    SavePassBlockItems();
+                }
+            }
         }
     }
     public class Dialog64
@@ -1830,13 +1924,13 @@ namespace Application_Blocker
         [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
         public static extern void IncorrectPasswordError(IntPtr hwnd);
         [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
-        public static extern void PasswordWarning(IntPtr hwnd);
+        public static extern void PasswordWarning(IntPtr hwnd, string msg);
         [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
         public static extern void CurrentPasswordIncorrect(IntPtr hwnd);
         [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
         public static extern void PasswordChanged(IntPtr hwnd);
         [DllImport("TaskDlg64.dll", CharSet = CharSet.Unicode)]
-        public static extern void CriticalMonitorError(IntPtr hwnd, string msg);
+        public static extern int ShowBlockedMessage(IntPtr hwnd, string msg);
     }
     public class Dialog32
     {
@@ -1867,29 +1961,12 @@ namespace Application_Blocker
         [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
         public static extern void IncorrectPasswordError(IntPtr hwnd);
         [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
-        public static extern void PasswordWarning(IntPtr hwnd);
+        public static extern void PasswordWarning(IntPtr hwnd, string msg);
         [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
         public static extern void CurrentPasswordIncorrect(IntPtr hwnd);
         [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
         public static extern void PasswordChanged(IntPtr hwnd);
         [DllImport("TaskDlg32.dll", CharSet = CharSet.Unicode)]
-        public static extern void CriticalMonitorError(IntPtr hwnd, string msg);
-    }
-    public class ProcessActions
-    {
-        [DllImport("ntdll.dll", SetLastError = true)]
-        public static extern int NtSuspendProcess(IntPtr processHandle);
-
-        [DllImport("ntdll.dll", SetLastError = true)]
-        public static extern int NtResumeProcess(IntPtr processHandle);
-
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr OpenProcess(int access, bool inheritHandle, int processId);
-
-        [DllImport("kernel32.dll")]
-        public static extern bool CloseHandle(IntPtr hObject);
-
-        public const int PROCESS_SUSPEND_RESUME = 0x0800;
-        public const int PROCESS_QUERY_INFORMATION = 0x0400;
+        public static extern int ShowBlockedMessage(IntPtr hwnd, string msg);
     }
 }

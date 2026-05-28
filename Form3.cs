@@ -151,15 +151,15 @@ namespace Application_Blocker
                 byte[] encrypted = ProtectedData.Protect(Encoding.UTF8.GetBytes(plainPassword), null, DataProtectionScope.CurrentUser);
                 return Convert.ToBase64String(encrypted);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (Environment.Is64BitOperatingSystem)
                 {
-                    Dialog64.PasswordWarning(this.Handle);
+                    Dialog64.PasswordWarning(this.Handle, ex.Message);
                 }
                 else
                 {
-                    Dialog32.PasswordWarning(this.Handle);
+                    Dialog32.PasswordWarning(this.Handle, ex.Message);
                 }
                 Properties.Settings.Default.Password = "";
                 Properties.Settings.Default.Save();
@@ -174,15 +174,15 @@ namespace Application_Blocker
                 byte[] decrypted = ProtectedData.Unprotect(Convert.FromBase64String(encryptedPassword), null, DataProtectionScope.CurrentUser);
                 return Encoding.UTF8.GetString(decrypted);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (Environment.Is64BitOperatingSystem)
                 {
-                    Dialog64.PasswordWarning(this.Handle);
+                    Dialog64.PasswordWarning(this.Handle, ex.Message);
                 }
                 else
                 {
-                    Dialog32.PasswordWarning(this.Handle);
+                    Dialog32.PasswordWarning(this.Handle, ex.Message);
                 }
                 Properties.Settings.Default.Password = "";
                 Properties.Settings.Default.Save();
