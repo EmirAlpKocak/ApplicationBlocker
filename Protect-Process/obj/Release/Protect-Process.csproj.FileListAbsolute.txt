@@ -1,10 +1,14 @@
 C:\Users\Emir\Desktop\Protect-Process\bin\Release\Protect-Process.exe.config
 C:\Users\Emir\Desktop\Protect-Process\bin\Release\Protect-Process.exe
 C:\Users\Emir\Desktop\Protect-Process\bin\Release\Protect-Process.pdb
-C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect_Process.Form1.resources
-C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect_Process.Properties.Resources.resources
-C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.csproj.GenerateResource.cache
+C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.csproj.AssemblyReference.cache
 C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.csproj.CoreCompileInputs.cache
 C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.exe
 C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.pdb
-C:\Users\Emir\Desktop\Protect-Process\obj\Release\Protect-Process.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\bin\Release\Protect-Process.exe.config
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\bin\Release\Protect-Process.exe
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\bin\Release\Protect-Process.pdb
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\obj\Release\Protect-Process.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\obj\Release\Protect-Process.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\obj\Release\Protect-Process.exe
+C:\Users\Emir\Desktop\Application Blocker\Protect-Process\obj\Release\Protect-Process.pdb

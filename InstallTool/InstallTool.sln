@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.37301.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallTool", "InstallTool.csproj", "{F3598F0E-913A-4B7B-8E77-616905EC1D98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3598F0E-913A-4B7B-8E77-616905EC1D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3598F0E-913A-4B7B-8E77-616905EC1D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3598F0E-913A-4B7B-8E77-616905EC1D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3598F0E-913A-4B7B-8E77-616905EC1D98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13328253-EEC0-435F-B305-781ABE7DCBD5}
+	EndGlobalSection
+EndGlobal

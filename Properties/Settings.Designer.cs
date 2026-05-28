@@ -92,5 +92,17 @@ namespace Application_Blocker.Properties {
                 this["PasswordBlockedApps"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SilentLock {
+            get {
+                return ((bool)(this["SilentLock"]));
+            }
+            set {
+                this["SilentLock"] = value;
+            }
+        }
     }
 }

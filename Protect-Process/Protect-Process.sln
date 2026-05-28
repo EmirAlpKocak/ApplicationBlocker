@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.37206.5
+VisualStudioVersion = 16.0.37301.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protect-Process", "Protect-Process.csproj", "{173DD73D-F693-4B95-97DF-60417F17C280}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protect-Process", "Protect-Process.csproj", "{89DF8EDA-80FC-44C4-ABAE-C64BDC87215D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{173DD73D-F693-4B95-97DF-60417F17C280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{173DD73D-F693-4B95-97DF-60417F17C280}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{173DD73D-F693-4B95-97DF-60417F17C280}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{173DD73D-F693-4B95-97DF-60417F17C280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DF8EDA-80FC-44C4-ABAE-C64BDC87215D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DF8EDA-80FC-44C4-ABAE-C64BDC87215D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DF8EDA-80FC-44C4-ABAE-C64BDC87215D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DF8EDA-80FC-44C4-ABAE-C64BDC87215D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8F7D3198-D178-4BE0-A888-3A943BB1AFC5}
+		SolutionGuid = {0368AE32-26ED-4CEC-A509-497A143F92D8}
 	EndGlobalSection
 EndGlobal

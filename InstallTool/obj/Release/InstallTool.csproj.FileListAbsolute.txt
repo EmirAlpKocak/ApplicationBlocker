@@ -1,0 +1,7 @@
+C:\Users\Emir\Desktop\InstallTool\bin\Release\InstallTool.exe.config
+C:\Users\Emir\Desktop\InstallTool\bin\Release\InstallTool.exe
+C:\Users\Emir\Desktop\InstallTool\bin\Release\InstallTool.pdb
+C:\Users\Emir\Desktop\InstallTool\obj\Release\InstallTool.csproj.AssemblyReference.cache
+C:\Users\Emir\Desktop\InstallTool\obj\Release\InstallTool.csproj.CoreCompileInputs.cache
+C:\Users\Emir\Desktop\InstallTool\obj\Release\InstallTool.exe
+C:\Users\Emir\Desktop\InstallTool\obj\Release\InstallTool.pdb
