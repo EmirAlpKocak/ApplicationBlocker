@@ -1,7 +1,7 @@
 # ApplicationBlocker
 Application Blocker Software for Windows
 
-⚠️ This software is released into the public domain under The Unlicense. No warranty is provided. Use at your own risk.
+⚠️ This software is released into the MIT License. No warranty is provided. Use at your own risk.
 
 Application Blocker
 
